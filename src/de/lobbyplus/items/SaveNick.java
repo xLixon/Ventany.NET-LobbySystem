@@ -19,7 +19,7 @@ public class SaveNick implements Listener{
 		if(p.getItemInHand().getType() != Material.NAME_TAG) {
 			e.setCancelled(true);
 		}else {
-			if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("ง6Nick-Tool")) {
+			if (p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("ยง6Nick-Tool")) {
 				playerNick = p.getPlayerListName();
 				Bukkit.getLogger().info("New Nick save: " + playerNick);
 			}

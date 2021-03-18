@@ -4,17 +4,18 @@
 
 package de.osternachten.listener.listener.navigator;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.Location;
-import org.bukkit.configuration.file.YamlConfiguration;
-import java.io.File;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.Bukkit;
-import org.bukkit.inventory.Inventory;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+
+import java.io.File;
 
 public class TeleportSkyWars implements Listener
 {
@@ -29,15 +30,15 @@ public class TeleportSkyWars implements Listener
     String displayNameODV;
     
     public TeleportSkyWars() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5CityBuild";
-        this.displayNameODV = "§2OneDayVaro";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5CityBuild";
+        this.displayNameODV = "Â§2OneDayVaro";
     }
     
     @EventHandler
@@ -59,30 +60,30 @@ public class TeleportSkyWars implements Listener
                     final Object world = spawnPointConfig.get("naviskywars.WORLD");
                     final Object yaw = spawnPointConfig.get("naviskywars.YAW");
                     if (!(X instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: SkyWars" + " " + "§rDer Wert \"X\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: SkyWars" + " " + "Â§rDer Wert \"X\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(Y instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: SkyWars" + " " + "Der Wert \"Y\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: SkyWars" + " " + "Der Wert \"Y\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(Z instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: SkyWars" + " " + "Der Wert \"Z\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: SkyWars" + " " + "Der Wert \"Z\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(world instanceof String)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: SkyWars" + " " + "Der Wert \"world\" ist §4KEIN §r Name.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: SkyWars" + " " + "Der Wert \"world\" ist Â§4KEIN Â§r Name.");
                         return;
                     }
                     if (!(yaw instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: SkyWars" + " " + "Der Wert \"yaw\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: SkyWars" + " " + "Der Wert \"yaw\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (Bukkit.getWorld((String)world) != null) {
                         p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
                     }
                     else {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: SkyWars" + " " + "§cDiese Welt gibt es nicht!");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: SkyWars" + " " + "Â§cDiese Welt gibt es nicht!");
                     }
                 }
             }

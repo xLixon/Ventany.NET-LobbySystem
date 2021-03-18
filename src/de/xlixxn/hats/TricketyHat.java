@@ -10,9 +10,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 public class TricketyHat implements Listener {
-	
-	String TricketyHat = "§4Trickety";
-	
+
+	String TricketyHat = "Â§4Trickety";
+
 	@EventHandler
 	public void onClick(final InventoryClickEvent e) {
 		final Player p = (Player) e.getWhoClicked();
@@ -25,7 +25,7 @@ public class TricketyHat implements Listener {
 			if (e.getClickedInventory() == null) {
 				return;
 			}
-			if (!e.getClickedInventory().getName().equalsIgnoreCase("§eHats")) {
+			if (!e.getClickedInventory().getName().equalsIgnoreCase("Â§eHats")) {
 				return;
 			}
 			if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR)) {
@@ -34,11 +34,11 @@ public class TricketyHat implements Listener {
 			if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.TricketyHat)) {
 				if (p.hasPermission("lobby.hats.trickety")) {
 					p.getInventory().setHelmet(TricketyHat);
-					p.sendMessage("§9Du hast jetzt folgenden Hat an:");
+					p.sendMessage("Â§9Du hast jetzt folgenden Hat an:");
 					p.sendMessage(p.getInventory().getHelmet().getItemMeta().getDisplayName());
 					p.closeInventory();
 				} else {
-					p.sendMessage("§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.TricketyHat);
+					p.sendMessage("Â§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.TricketyHat);
 				}
 			}
 		}

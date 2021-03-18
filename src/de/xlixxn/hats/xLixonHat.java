@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class xLixonHat implements Listener {
 
-	String xLixonNameHat = "§4xLixon";
+	String xLixonNameHat = "Â§4xLixon";
 
 	@EventHandler
 	public void onClick(final InventoryClickEvent e) {
@@ -25,7 +25,7 @@ public class xLixonHat implements Listener {
 			if (e.getClickedInventory() == null) {
 				return;
 			}
-			if (!e.getClickedInventory().getName().equalsIgnoreCase("§eHats")) {
+			if (!e.getClickedInventory().getName().equalsIgnoreCase("Â§eHats")) {
 				return;
 			}
 			if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR)) {
@@ -34,11 +34,11 @@ public class xLixonHat implements Listener {
 			if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.xLixonNameHat)) {
 				if (p.hasPermission("lobby.hats.xlixon")) {
 					p.getInventory().setHelmet(xlixonHat);
-					p.sendMessage("§9Du hast jetzt folgenden Hat an:");
+					p.sendMessage("Â§9Du hast jetzt folgenden Hat an:");
 					p.sendMessage(p.getInventory().getHelmet().getItemMeta().getDisplayName());
 					p.closeInventory();
 				} else {
-					p.sendMessage("§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.xLixonNameHat);
+					p.sendMessage("Â§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.xLixonNameHat);
 				}
 			}
 		}

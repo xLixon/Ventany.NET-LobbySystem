@@ -4,20 +4,19 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.playerList;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerJoinEvent;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Field;
+import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import net.minecraft.server.v1_8_R3.Packet;
-
+import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
-import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import org.bukkit.entity.Player;
-import java.io.File;
-
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 
 public class Tab implements Listener
 {
@@ -79,6 +78,6 @@ public class Tab implements Listener
     	
     	System.out.println("Der aktuelle Servername: " + this.Name);
         final Player p = e.getPlayer();
-        this.sendTablistHeaderAndFooter(p, "§e" + this.Name + " §2Lobby\n §7Du willst zu einem Spielmodi? Rechtsklick auf den Navigator!\n ", "§7Spiele mit deinen Freunden und habe Spa\u00df.\n §7Adde deine §aFreunde §7mit §a/friend §7und \n §7erstelle coole §5Partys §7mit §5/party\n");
+        this.sendTablistHeaderAndFooter(p, "Â§e" + this.Name + " Â§2Lobby\n Â§7Du willst zu einem Spielmodi? Rechtsklick auf den Navigator!\n ", "Â§7Spiele mit deinen Freunden und habe Spa\u00df.\n Â§7Adde deine Â§aFreunde Â§7mit Â§a/friend Â§7und \n Â§7erstelle coole Â§5Partys Â§7mit Â§5/party\n");
     }
 }

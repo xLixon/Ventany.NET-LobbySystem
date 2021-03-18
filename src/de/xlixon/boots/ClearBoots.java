@@ -4,12 +4,12 @@
 
 package de.xlixon.boots;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.entity.Player;
 import org.bukkit.Material;
-import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class ClearBoots implements Listener
 {
@@ -19,12 +19,12 @@ public class ClearBoots implements Listener
             if (e.getClickedInventory() == null) {
                 return;
             }
-            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR)) {
+            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR)) {
                 return;
             }
-            if (e.getClickedInventory().contains(Material.BARRIER) && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§cBoots ablegen")) {
-                final Player p = (Player)e.getWhoClicked();
-                p.getInventory().setBoots((ItemStack)null);
+            if (e.getClickedInventory().contains(Material.BARRIER) && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("Â§cBoots ablegen")) {
+                final Player p = (Player) e.getWhoClicked();
+                p.getInventory().setBoots((ItemStack) null);
                 p.closeInventory();
             }
         }

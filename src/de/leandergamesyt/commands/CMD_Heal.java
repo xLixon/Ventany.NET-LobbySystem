@@ -4,11 +4,11 @@
 
 package de.leandergamesyt.commands;
 
-import org.bukkit.entity.Player;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.Listener;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 
 public class CMD_Heal implements CommandExecutor, Listener
 {
@@ -21,14 +21,14 @@ public class CMD_Heal implements CommandExecutor, Listener
             if (p.hasPermission("lobbysystem.perm.heal")) {
                 p.setHealth(20.0);
                 p.setFoodLevel(20);
-                p.sendMessage("§eDu wurdest erfolgreich gehealed.");
+                p.sendMessage("Â§eDu wurdest erfolgreich gehealed.");
             }
             else {
-                p.sendMessage("§3Dazu hast du nicht die Berechtigung!");
+                p.sendMessage("Â§3Dazu hast du nicht die Berechtigung!");
             }
         }
         else {
-            p.sendMessage("§4Bitte benutzte /heal");
+            p.sendMessage("Â§4Bitte benutzte /heal");
         }
         return true;
     }

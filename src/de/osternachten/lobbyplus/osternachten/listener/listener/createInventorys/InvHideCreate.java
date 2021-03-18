@@ -4,21 +4,22 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys;
 
-import org.bukkit.event.inventory.InventoryClickEvent;
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.meta.ItemMeta;
-import java.util.List;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
-import org.bukkit.event.block.Action;
-import net.md_5.bungee.api.ChatColor;
-import java.util.ArrayList;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.Bukkit;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InvHideCreate implements Listener
 {
@@ -42,43 +43,43 @@ public class InvHideCreate implements Listener
     String closeInv;
     
     public InvHideCreate() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.nameHide = "§6Spieler verstecken";
-        this.nameLobby = "§cLobby";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.nameHideSee = "§aAlle Spieler sehen";
-        this.nameHideVIP = "§5Nur VIP's sehen";
-        this.nameHideNone = "§4Keine Spieler sehen";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5CityBuild";
-        this.displayNameODV = "§2OneDayVaro";
-        this.displayNameLobby1 = "§bLobby 1";
-        this.displayNameLobby2 = "§bLobby 2";
-        this.displayNameLobby3 = "§bLobby 3";
-        this.closeInv = "§cInventar schlie\u00dfen";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.nameHide = "Â§6Spieler verstecken";
+        this.nameLobby = "Â§cLobby";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.nameHideSee = "Â§aAlle Spieler sehen";
+        this.nameHideVIP = "Â§5Nur VIP's sehen";
+        this.nameHideNone = "Â§4Keine Spieler sehen";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5CityBuild";
+        this.displayNameODV = "Â§2OneDayVaro";
+        this.displayNameLobby1 = "Â§bLobby 1";
+        this.displayNameLobby2 = "Â§bLobby 2";
+        this.displayNameLobby3 = "Â§bLobby 3";
+        this.closeInv = "Â§cInventar schlie\u00dfen";
     }
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@EventHandler
     public void onInteract(final PlayerInteractEvent e) {
         final ArrayList<String> loreSEE = new ArrayList<String>();
-        loreSEE.add(ChatColor.RESET + "§2Hier siehst du alle Spieler auf deiner Lobby");
+        loreSEE.add(ChatColor.RESET + "Â§2Hier siehst du alle Spieler auf deiner Lobby");
         final ArrayList<String> loreVIP = new ArrayList<String>();
-        loreVIP.add(ChatColor.RESET + "§dDu magst nur deine Freunde sehen?");
-        loreVIP.add(ChatColor.RESET + "§dDann aktiviere diese Funtkion und nur bestimmte Leute werden von dir gesehen!!");
+        loreVIP.add(ChatColor.RESET + "Â§dDu magst nur deine Freunde sehen?");
+        loreVIP.add(ChatColor.RESET + "Â§dDann aktiviere diese Funtkion und nur bestimmte Leute werden von dir gesehen!!");
         final ArrayList<String> loreHIDE = new ArrayList<String>();
-        loreHIDE.add(ChatColor.RESET + "§cVerstecke alle nervenden Spieler");
+        loreHIDE.add(ChatColor.RESET + "Â§cVerstecke alle nervenden Spieler");
         if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (e.getItem() == null) {
                 return;
             }
             if (e.getItem().getType() == Material.BLAZE_ROD && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameHide)) {
-                final Inventory inv = Bukkit.createInventory((InventoryHolder)e.getPlayer(), 27, this.nameHide);
-                final ItemStack itemSee = new ItemStack(Material.INK_SACK, 1, (short)10);
+                final Inventory inv = Bukkit.createInventory((InventoryHolder) e.getPlayer(), 27, this.nameHide);
+                final ItemStack itemSee = new ItemStack(Material.INK_SACK, 1, (short) 10);
                 final ItemMeta itemmetaSee = itemSee.getItemMeta();
                 itemmetaSee.setDisplayName(this.nameHideSee);
                 itemmetaSee.setLore((List)loreSEE);
@@ -130,10 +131,10 @@ public class InvHideCreate implements Listener
     private void closeInv(final InventoryClickEvent e) {
         final Player p = (Player)e.getWhoClicked();
         if (p.getOpenInventory().getTitle().equalsIgnoreCase(this.nameHide)) {
-            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
+            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 return;
             }
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§cInventar schlie\u00dfen")) {
+            if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("Â§cInventar schlie\u00dfen")) {
                 p.closeInventory();
             }
         }
@@ -143,14 +144,14 @@ public class InvHideCreate implements Listener
     private void onClickSee(final InventoryClickEvent e) {
         final Player p = (Player)e.getWhoClicked();
         if (p.getOpenInventory().getTitle().equalsIgnoreCase(this.nameHide)) {
-            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
+            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 return;
             }
-            if (!e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§aAlle Spieler sehen")) {
+            if (!e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("Â§aAlle Spieler sehen")) {
                 return;
             }
             this.showPlayer(p);
-            p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + " §aEs werden jetzt ALLE Spieler angezeigt.");
+            p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + " Â§aEs werden jetzt ALLE Spieler angezeigt.");
             p.closeInventory();
         }
     }
@@ -169,7 +170,7 @@ public class InvHideCreate implements Listener
                 this.hidePlayer(p);
             }
             this.showVIP(p);
-            p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + " §5Es werden jetzt nur VIP Spieler angezeigt.");
+            p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + " Â§5Es werden jetzt nur VIP Spieler angezeigt.");
             p.closeInventory();
         }
     }
@@ -185,7 +186,7 @@ public class InvHideCreate implements Listener
                 return;
             }
             this.hidePlayer(p);
-            p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + " §4Es werden jetzt KEINE Spieler angezeigt.");
+            p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + " Â§4Es werden jetzt KEINE Spieler angezeigt.");
             p.closeInventory();
         }
     }

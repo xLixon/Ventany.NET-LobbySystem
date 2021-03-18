@@ -4,15 +4,16 @@
 
 package de.lobbyplus.items;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
 import java.util.ArrayList;
-import org.bukkit.event.Listener;
 
 public class Fly implements Listener
 {
@@ -23,10 +24,10 @@ public class Fly implements Listener
     public ArrayList<Player> flyPlayers;
     
     public Fly() {
-        this.Prefix = "§c[§2Lobby§c] | §5";
-        this.Fly_ON = "§a§lFlymode aktiviert";
-        this.Fly_ON_ON = "§a§lFlymode aktiviert";
-        this.Fly_OFF = "§4§lFlymode deaktiviert";
+        this.Prefix = "Â§c[Â§2LobbyÂ§c] | Â§5";
+        this.Fly_ON = "Â§aÂ§lFlymode aktiviert";
+        this.Fly_ON_ON = "Â§aÂ§lFlymode aktiviert";
+        this.Fly_OFF = "Â§4Â§lFlymode deaktiviert";
         this.flyPlayers = new ArrayList<Player>();
     }
     

@@ -4,15 +4,15 @@
 
 package de.xlixon.boots;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.Color;
-import org.bukkit.inventory.meta.LeatherArmorMeta;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class LavaBoots implements Listener
 {
@@ -25,7 +25,7 @@ public class LavaBoots implements Listener
     
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
-        this.lavaBootsName = "ง4Lava Boots";
+        this.lavaBootsName = "ยง4Lava Boots";
         final Player p = (Player)e.getWhoClicked();
         final ItemStack lavaBoots = new ItemStack(Material.LEATHER_BOOTS);
         final LeatherArmorMeta lavaBootsMeta = (LeatherArmorMeta)lavaBoots.getItemMeta();

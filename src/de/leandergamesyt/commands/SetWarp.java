@@ -5,18 +5,18 @@
 package de.leandergamesyt.commands;
 
 import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
-import org.bukkit.entity.Player;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.Listener;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 
 public class SetWarp implements CommandExecutor, Listener
 {
     String Prefix;
     
     public SetWarp() {
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
     }
     
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
@@ -42,7 +42,7 @@ public class SetWarp implements CommandExecutor, Listener
         LobbyPlus.instance.getConfig().set(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warpName)))).toLowerCase())) + ".PITCH", (Object)player.getLocation().getPitch());
         LobbyPlus.instance.getConfig().set(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warpName)))).toLowerCase())) + ".WORLD", (Object)player.getWorld().getName());
         LobbyPlus.instance.saveConfig();
-        player.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Der Warp f\u00fcr " + "§c" + warpName + "§r" + " wurde gesetzt");
+        player.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Der Warp f\u00fcr " + "Â§c" + warpName + "Â§r" + " wurde gesetzt");
         return true;
     }
 }

@@ -4,6 +4,7 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys;
 
+import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -13,8 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
-
-import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
 
 public class InventoryCreate implements Listener
 {
@@ -30,15 +29,15 @@ public class InventoryCreate implements Listener
     String displayName;
     
     public InventoryCreate() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5CityBuild";
-        this.displayNameODV = "§2OneDayVaro";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5CityBuild";
+        this.displayNameODV = "Â§2OneDayVaro";
     }
     
     
@@ -51,7 +50,7 @@ public class InventoryCreate implements Listener
     public void naviTP(final InventoryClickEvent e) {
         final Player p = (Player)e.getWhoClicked();
         try {
-            if (e.getInventory().getName().equalsIgnoreCase("§4Navigator")) {
+            if (e.getInventory().getName().equalsIgnoreCase("Â§4Navigator")) {
                 e.setCancelled(true);
                 if (e.getCurrentItem().getType() == Material.MAGMA_CREAM) {
                     final String warp = LobbyPlus.instance.getConfig().getString("Warp.Name");
@@ -67,7 +66,7 @@ public class InventoryCreate implements Listener
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "6 Du wurdest zu " + warp + " teleportiert.");
                 }
             }
-            if (e.getInventory().getName().equalsIgnoreCase("§aSkyWars")) {
+            if (e.getInventory().getName().equalsIgnoreCase("Â§aSkyWars")) {
                 e.setCancelled(true);
                 if (e.getCurrentItem().getType() == Material.GRASS) {
                     final String warp = LobbyPlus.instance.getConfig().getString("Warp.Name");

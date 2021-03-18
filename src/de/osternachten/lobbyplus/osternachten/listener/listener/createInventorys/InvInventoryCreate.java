@@ -4,6 +4,7 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys;
 
+import net.minecraft.server.v1_8_R3.Block;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -17,8 +18,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-
-import net.minecraft.server.v1_8_R3.Block;
 
 public class InvInventoryCreate implements Listener
 {
@@ -45,27 +44,27 @@ public class InvInventoryCreate implements Listener
     String invSpecial;
     
     public InvInventoryCreate() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.nameHide = "§6Spieler verstecken";
-        this.nameLobby = "§cLobby";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.nameHideSee = "§aAlle Spieler sehen";
-        this.nameHideVIP = "§5Nur VIP's sehen";
-        this.nameHideNone = "§4Keine Spieler sehen";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5CityBuild";
-        this.displayNameODV = "§2OneDayVaro";
-        this.displayNameLobby1 = "§bLobby 1";
-        this.displayNameLobby2 = "§bLobby 2";
-        this.displayNameLobby3 = "§bLobby 3";
-        this.nameInventory = "§eInventar";
-        this.invBoots = "§cBoots";
-        this.invHats = "§cHats";
-        this.invSpecial = "§cSpecial Items";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.nameHide = "Â§6Spieler verstecken";
+        this.nameLobby = "Â§cLobby";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.nameHideSee = "Â§aAlle Spieler sehen";
+        this.nameHideVIP = "Â§5Nur VIP's sehen";
+        this.nameHideNone = "Â§4Keine Spieler sehen";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5CityBuild";
+        this.displayNameODV = "Â§2OneDayVaro";
+        this.displayNameLobby1 = "Â§bLobby 1";
+        this.displayNameLobby2 = "Â§bLobby 2";
+        this.displayNameLobby3 = "Â§bLobby 3";
+        this.nameInventory = "Â§eInventar";
+        this.invBoots = "Â§cBoots";
+        this.invHats = "Â§cHats";
+        this.invSpecial = "Â§cSpecial Items";
     }
     
     @EventHandler

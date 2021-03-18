@@ -4,18 +4,19 @@
 
 package de.lobbyplus.items;
 
-import org.bukkit.util.Vector;
 import org.bukkit.Bukkit;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.Vector;
+
 import java.util.ArrayList;
-import org.bukkit.event.Listener;
 
 public class Shield implements Listener
 {
@@ -27,11 +28,11 @@ public class Shield implements Listener
     public ArrayList<Player> shieldedPlayers;
     
     public Shield() {
-        this.Shield_ON = "§5§lSchutzschild §r[§2§lEIN§r]";
-        this.Shield_ON_ON = "§r[§2§lEIN§r]";
-        this.Shield_OFF = "§5§lSchutzschild §r[§4§lAUS§r]";
-        this.Shield_OFF_OFF = "§r[§4§lAUS§r]";
-        this.Prefix = "§c[§2Lobby§c] | §5";
+        this.Shield_ON = "Â§5Â§lSchutzschild Â§r[Â§2Â§lEINÂ§r]";
+        this.Shield_ON_ON = "Â§r[Â§2Â§lEINÂ§r]";
+        this.Shield_OFF = "Â§5Â§lSchutzschild Â§r[Â§4Â§lAUSÂ§r]";
+        this.Shield_OFF_OFF = "Â§r[Â§4Â§lAUSÂ§r]";
+        this.Prefix = "Â§c[Â§2LobbyÂ§c] | Â§5";
         this.shieldedPlayers = new ArrayList<Player>();
     }
     

@@ -1,5 +1,6 @@
 package de.osternachten.lobbyplus.osternachten.listener.listener.manageServer;
 
+import de.leandergamesyt.commands.BuildMode;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -7,17 +8,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.EntityDamageByBlockEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntitySpawnEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import de.leandergamesyt.commands.BuildMode;
 
 public class WorldProtector implements Listener
 {
@@ -27,7 +22,7 @@ public class WorldProtector implements Listener
     public static boolean breakBlocks = placeBlocks;
     
     static {
-        Prefix = "§cWorldProtector:§a ";
+        Prefix = "Â§cWorldProtector:Â§a ";
     }
     
     @EventHandler
@@ -38,9 +33,9 @@ public class WorldProtector implements Listener
     	if(BuildMode.buildModePlayerList.contains(p.getName())) {
     		e.setCancelled(false);
     	}else {
-    		e.setCancelled(true);
-    		p.sendMessage(WorldProtector.Prefix+ "§4Du darfst keine Bl\u00f6cke zerstören!");
-    	}
+            e.setCancelled(true);
+            p.sendMessage(WorldProtector.Prefix + "Â§4Du darfst keine Bl\u00f6cke zerstÃ¶ren!");
+        }
     	
     	
        
@@ -59,9 +54,9 @@ public class WorldProtector implements Listener
     	if(BuildMode.buildModePlayerList.contains(p.getName())) {
     		return;
     	}else {
-    		e.setCancelled(true);
-    		p.sendMessage(WorldProtector.Prefix+ "§4Du darfst keine Bl\u00f6cke platzieren!");
-    	}
+            e.setCancelled(true);
+            p.sendMessage(WorldProtector.Prefix + "Â§4Du darfst keine Bl\u00f6cke platzieren!");
+        }
         
         
         

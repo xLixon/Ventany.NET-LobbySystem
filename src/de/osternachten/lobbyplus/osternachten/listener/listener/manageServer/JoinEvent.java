@@ -4,10 +4,8 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.manageServer;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
+import de.apis.ChangeName;
+import de.lobbyplus.items.SaveNick;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -25,8 +23,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import de.apis.ChangeName;
-import de.lobbyplus.items.SaveNick;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class JoinEvent implements Listener
 {
@@ -52,21 +51,21 @@ public class JoinEvent implements Listener
     
     @SuppressWarnings("static-access")
 	public JoinEvent() {
-        this.displayNameNavi = "§cNavigator";
-        this.displayNameHide = "§6Spieler verstecken";
-        this.displayNameSilent = "§5Silent Hub";
-        this.displayNameShield = "§5Schutzschild";
-        this.displayNameLobby = "§cLobby";
-        this.displayNameFly = "§3Fly";
-        this.displayNameGM = "§1Gamemode Switch";
-        this.Fly_ON = "§aFlymode aktiviert";
-        this.Fly_ON_ON = "§aFlymode aktiviert";
-        this.Fly_OFF = "§4Flymode deaktiviert";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
+        this.displayNameNavi = "Â§cNavigator";
+        this.displayNameHide = "Â§6Spieler verstecken";
+        this.displayNameSilent = "Â§5Silent Hub";
+        this.displayNameShield = "Â§5Schutzschild";
+        this.displayNameLobby = "Â§cLobby";
+        this.displayNameFly = "Â§3Fly";
+        this.displayNameGM = "Â§1Gamemode Switch";
+        this.Fly_ON = "Â§aFlymode aktiviert";
+        this.Fly_ON_ON = "Â§aFlymode aktiviert";
+        this.Fly_OFF = "Â§4Flymode deaktiviert";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
         this.flyPlayers = new ArrayList<Player>();
-        this.displayNameSecret = "§9Wow, ein Secret";
-        this.displayNameInv = "§eInventar";
-        this.displayNameNick = "§6Nick-Tool";
+        this.displayNameSecret = "Â§9Wow, ein Secret";
+        this.displayNameInv = "Â§eInventar";
+        this.displayNameNick = "Â§6Nick-Tool";
     }
     
     public static void main(final String[] args) {
@@ -181,30 +180,30 @@ public class JoinEvent implements Listener
         final Object world = spawnPointConfig.get("spawn.WORLD");
         final Object yaw = spawnPointConfig.get("spawn.YAW");
         if (!(X instanceof Double)) {
-            System.out.println("Der Wert \"X\" ist §4KEINE §r Zahl.");
+            System.out.println("Der Wert \"X\" ist Â§4KEINE Â§r Zahl.");
             return;
         }
         if (!(Y instanceof Double)) {
-            System.out.println("Der Wert \"Y\" ist §4KEINE §r Zahl.");
+            System.out.println("Der Wert \"Y\" ist Â§4KEINE Â§r Zahl.");
             return;
         }
         if (!(Z instanceof Double)) {
-            System.out.println("Der Wert \"Z\" ist §4KEINE §r Zahl.");
+            System.out.println("Der Wert \"Z\" ist Â§4KEINE Â§r Zahl.");
             return;
         }
         if (!(world instanceof String)) {
-            System.out.println("Der Wert \"world\" ist §4KEIN §r Name.");
+            System.out.println("Der Wert \"world\" ist Â§4KEIN Â§r Name.");
             return;
         }
         if (!(yaw instanceof Double)) {
-            System.out.println("Der Wert \"yaw\" ist §4KEINE §r Zahl.");
+            System.out.println("Der Wert \"yaw\" ist Â§4KEINE Â§r Zahl.");
             return;
         }
         if (Bukkit.getWorld((String)world) != null) {
             p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
         }
         else {
-            System.out.println("§cDiese Welt gibt es nicht!");
+            System.out.println("Â§cDiese Welt gibt es nicht!");
         }
     }
     

@@ -1,13 +1,12 @@
 package de.leandergamesyt.commands;
 
-import java.util.ArrayList;
-
+import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
+import java.util.ArrayList;
 
 
 public class BuildMode implements CommandExecutor{
@@ -21,7 +20,7 @@ public class BuildMode implements CommandExecutor{
 		
 		if(!(sender instanceof Player)) {
 			System.out.println("2");
-			sender.sendMessage("ง7[งe!ง7]งc Du musst ein Spieler sein, um in den BuildMode zu gehen!");
+			sender.sendMessage("ยง7[ยงe!ยง7]ยงc Du musst ein Spieler sein, um in den BuildMode zu gehen!");
 		}else {
 			System.out.println("3");
 			
@@ -35,11 +34,11 @@ public class BuildMode implements CommandExecutor{
 				if(buildModePlayerList.contains(p.getName())) {
 					System.out.println("6");
 					buildModePlayerList.remove(p.getName());
-					p.sendMessage("ง7[งe!ง7]งc Du bist nicht mehr im BuildMode!");
+					p.sendMessage("ยง7[ยงe!ยง7]ยงc Du bist nicht mehr im BuildMode!");
 				}else {
 					System.out.println("7");
 					buildModePlayerList.add(p.getName());
-					p.sendMessage("ง7[งe!ง7]งc Du bist jetzt im BuildMode!");
+					p.sendMessage("ยง7[ยงe!ยง7]ยงc Du bist jetzt im BuildMode!");
 				}
 				
 			}

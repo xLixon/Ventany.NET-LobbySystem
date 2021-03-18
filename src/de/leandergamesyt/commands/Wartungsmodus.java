@@ -4,17 +4,17 @@
 
 package de.leandergamesyt.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.server.ServerListPingEvent;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.Bukkit;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
-import org.bukkit.event.EventHandler;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.server.ServerListPingEvent;
 
 public class Wartungsmodus implements Listener, CommandExecutor
 {
@@ -31,10 +31,10 @@ public class Wartungsmodus implements Listener, CommandExecutor
         final Player p = e.getPlayer();
         if (this.wartungsmodus) {
             if (!p.hasPermission("lobby.wartungsmodus.bypass")) {
-                p.kickPlayer("§cDie Wartung ist aktuell aktiv. \n§eBitte versuche es sp\u00e4ter erneut");
+                p.kickPlayer("Â§cDie Wartung ist aktuell aktiv. \nÂ§eBitte versuche es sp\u00e4ter erneut");
             }
             else {
-                p.sendMessage("§cDie Wartung ist aktuell aktiv, du hast aber die Permission zum ByPass.");
+                p.sendMessage("Â§cDie Wartung ist aktuell aktiv, du hast aber die Permission zum ByPass.");
             }
         }
     }
@@ -49,7 +49,7 @@ public class Wartungsmodus implements Listener, CommandExecutor
                 }
             }
             if (!Bukkit.getOfflinePlayer(event.getName()).isOp()) {
-                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§4Der Server ist im WartungsModus!");
+                event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "Â§4Der Server ist im WartungsModus!");
             }
         }
     }
@@ -58,7 +58,7 @@ public class Wartungsmodus implements Listener, CommandExecutor
     public void onPing(final ServerListPingEvent event) {
         if (this.wartungsmodus) {
             event.setMaxPlayers(0);
-            event.setMotd("§4Der Server ist im WartungsModus!");
+            event.setMotd("Â§4Der Server ist im WartungsModus!");
         }
     }
     
@@ -72,11 +72,11 @@ public class Wartungsmodus implements Listener, CommandExecutor
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("an")) {
                 this.wartungsmodus = true;
-                sender.sendMessage("§aDu hast den Wartungs-Modus aktiviert!");
+                sender.sendMessage("Â§aDu hast den Wartungs-Modus aktiviert!");
             }
             if (args[0].equalsIgnoreCase("aus")) {
                 this.wartungsmodus = false;
-                sender.sendMessage("§4Du hast den Wartungs-Modus deaktiviert!");
+                sender.sendMessage("Â§4Du hast den Wartungs-Modus deaktiviert!");
             }
             return true;
         }

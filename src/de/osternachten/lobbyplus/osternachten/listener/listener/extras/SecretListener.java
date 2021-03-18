@@ -5,15 +5,15 @@
 package de.osternachten.lobbyplus.osternachten.listener.listener.extras;
 
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class SecretListener implements Listener
 {
     String displayNameSecret;
     
     public SecretListener() {
-        this.displayNameSecret = "ง9Wow, ein Secret";
+        this.displayNameSecret = "ยง9Wow, ein Secret";
     }
     
     public void secretIndicator(final InventoryClickEvent e) {

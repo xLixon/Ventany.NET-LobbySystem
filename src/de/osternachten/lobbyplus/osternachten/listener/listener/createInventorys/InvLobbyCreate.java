@@ -1,25 +1,24 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys;
 
-import java.io.IOException;
-
-import org.bukkit.plugin.Plugin;
-import java.io.DataOutputStream;
-import java.io.ByteArrayOutputStream;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.Material;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.Bukkit;
-import org.bukkit.inventory.Inventory;
-
 import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class InvLobbyCreate implements Listener
 {
@@ -54,23 +53,23 @@ public class InvLobbyCreate implements Listener
     LobbyPlus pl;
     
     public InvLobbyCreate() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.nameHide = "§6Spieler verstecken";
-        this.nameLobby = "§cLobby";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.nameHideSee = "§aAlle Spieler sehen";
-        this.nameHideVIP = "§5Nur VIP's sehen";
-        this.nameHideNone = "§4Keine Spieler sehen";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5CityBuild";
-        this.displayNameODV = "§2OneDayVaro";
-        this.displayNameLobby1 = "§bLobby 1";
-        this.displayNameLobby2 = "§bLobby 2";
-        this.displayNameLobby3 = "§bLobby 3";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.nameHide = "Â§6Spieler verstecken";
+        this.nameLobby = "Â§cLobby";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.nameHideSee = "Â§aAlle Spieler sehen";
+        this.nameHideVIP = "Â§5Nur VIP's sehen";
+        this.nameHideNone = "Â§4Keine Spieler sehen";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5CityBuild";
+        this.displayNameODV = "Â§2OneDayVaro";
+        this.displayNameLobby1 = "Â§bLobby 1";
+        this.displayNameLobby2 = "Â§bLobby 2";
+        this.displayNameLobby3 = "Â§bLobby 3";
     }
     
     @EventHandler
@@ -108,9 +107,9 @@ public class InvLobbyCreate implements Listener
                     return;
                 }
                 if (!p.getServer().getName().equalsIgnoreCase("Lobby-1")) {
-                    p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§cEntweder nutzt du kein BungeeCord Netzwerk oder die Namen sind falsch eingestellt.");
-                    p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§cFolgende Namen sind erlaubt: lobby1 ; lobby2");
-                    p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§c\u00c4ndere diese Namen in deiner BungeeCord Config bei deinen Default Fallback Servern.");
+                    p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§cEntweder nutzt du kein BungeeCord Netzwerk oder die Namen sind falsch eingestellt.");
+                    p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§cFolgende Namen sind erlaubt: lobby1 ; lobby2");
+                    p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§c\u00c4ndere diese Namen in deiner BungeeCord Config bei deinen Default Fallback Servern.");
                     return;
                 }
                 this.connectPlayerToServer(p, "Lobby-1");
@@ -144,12 +143,12 @@ public class InvLobbyCreate implements Listener
                 return;
             }
             if (!p.getServer().getName().equalsIgnoreCase("Lobby-2")) {
-                p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§cEntweder nutzt du kein BungeeCord Netzwerk oder die Namen sind falsch eingestellt.");
-                p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§cFolgende Namen sind erlaubt: lobby1 ; lobby2");
-                p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§c\u00c4ndere diese Namen in deiner BungeeCord Config bei deinen Default Fallback Servern.");
+                p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§cEntweder nutzt du kein BungeeCord Netzwerk oder die Namen sind falsch eingestellt.");
+                p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§cFolgende Namen sind erlaubt: lobby1 ; lobby2");
+                p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§c\u00c4ndere diese Namen in deiner BungeeCord Config bei deinen Default Fallback Servern.");
                 return;
             }
-            p.sendMessage(String.valueOf(String.valueOf(String.valueOf(this.Prefix))) + "§8Du bist jetzt mit dem Server §c" + p.getServer().getName() + "§8verbunden.");
+            p.sendMessage(String.valueOf(String.valueOf(String.valueOf(this.Prefix))) + "Â§8Du bist jetzt mit dem Server Â§c" + p.getServer().getName() + "Â§8verbunden.");
             System.out.println("\u001b[31m[LobbySystem] Der Spieler " + e.getWhoClicked().getName() + " wurde auf den Server " + e.getWhoClicked().getServer().getName() + "gesendet." + "\u001b[0m");
             
             

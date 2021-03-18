@@ -4,8 +4,6 @@
 
 package de.osternachten.listener.listener.navigator;
 
-import java.io.File;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,8 +15,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-public class TeleportVanilla implements Listener
-{
+import java.io.File;
+
+public class TeleportVanilla implements Listener {
     Inventory inv;
     String nameNavigator;
     String Prefix;
@@ -42,27 +41,27 @@ public class TeleportVanilla implements Listener
     String displayNameVanilla;
     
     public TeleportVanilla() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5CityBuild";
-        this.displayNameCoresItem = "§b§lCores";
-        this.displayNameSpeedUHCItem = "§e§lSpeedUHC";
-        this.displayNameEGItem = "§5§lEnderGa,es";
-        this.displayNameTTTItem = "§4§lTTT";
-        this.displayNameJARItem = "§c§lJumpAndRun";
-        this.displayNameGunGameItem = "§3§lGunGame";
-        this.displayNameFFAItem = "§d§lFFA";
-        this.displayNameGame1v1Item = "§1§lGame 1vs1";
-        this.displayNameKit1v1Item = "§1§lKit 1vs1";
-        this.displayNameSGItem = "§a§lSurvivalGames";
-        this.displayNameCommunity = "§5§lCommunity";
-        this.displayNameLounge = "§6§lLounge";
-        this.displayNameVanilla = "§7[§aVanilla§7]§c[1.16.4]";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5CityBuild";
+        this.displayNameCoresItem = "Â§bÂ§lCores";
+        this.displayNameSpeedUHCItem = "Â§eÂ§lSpeedUHC";
+        this.displayNameEGItem = "Â§5Â§lEnderGa,es";
+        this.displayNameTTTItem = "Â§4Â§lTTT";
+        this.displayNameJARItem = "Â§cÂ§lJumpAndRun";
+        this.displayNameGunGameItem = "Â§3Â§lGunGame";
+        this.displayNameFFAItem = "Â§dÂ§lFFA";
+        this.displayNameGame1v1Item = "Â§1Â§lGame 1vs1";
+        this.displayNameKit1v1Item = "Â§1Â§lKit 1vs1";
+        this.displayNameSGItem = "Â§aÂ§lSurvivalGames";
+        this.displayNameCommunity = "Â§5Â§lCommunity";
+        this.displayNameLounge = "Â§6Â§lLounge";
+        this.displayNameVanilla = "Â§7[Â§aVanillaÂ§7]Â§c[1.16.4]";
     }
     
     @EventHandler
@@ -84,30 +83,30 @@ public class TeleportVanilla implements Listener
                     final Object world = spawnPointConfig.get("navivanilla.WORLD");
                     final Object yaw = spawnPointConfig.get("navivanilla.YAW");
                     if (!(X instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Vanilla" + " " + "§rDer Wert \"X\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Vanilla" + " " + "Â§rDer Wert \"X\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(Y instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Vanilla" + " " + "Der Wert \"Y\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Vanilla" + " " + "Der Wert \"Y\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(Z instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Vanilla" + " " + "Der Wert \"Z\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Vanilla" + " " + "Der Wert \"Z\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(world instanceof String)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Vanilla" + " " + "Der Wert \"world\" ist §4KEIN §r Name.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Vanilla" + " " + "Der Wert \"world\" ist Â§4KEIN Â§r Name.");
                         return;
                     }
                     if (!(yaw instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Vanilla" + " " + "Der Wert \"yaw\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Vanilla" + " " + "Der Wert \"yaw\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (Bukkit.getWorld((String)world) != null) {
                         p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
                     }
                     else {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Vanilla" + " " + "§cDiese Welt gibt es nicht!");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Vanilla" + " " + "Â§cDiese Welt gibt es nicht!");
                     }
                 }
             }

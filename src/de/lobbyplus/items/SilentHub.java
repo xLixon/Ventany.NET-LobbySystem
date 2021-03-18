@@ -4,15 +4,15 @@
 
 package de.lobbyplus.items;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class SilentHub implements Listener
 {
@@ -23,9 +23,9 @@ public class SilentHub implements Listener
     
     public SilentHub() {
         this.silenthubstatus = 0;
-        this.SilentHub_ON = "§5§lSilent Hub §r[§2§lEIN§r]";
-        this.SilentHub_OFF = "§5§lSilent Hub §r[§4§lAUS§r]";
-        this.Prefix = "§c[§2Lobby§c] | §5";
+        this.SilentHub_ON = "Â§5Â§lSilent Hub Â§r[Â§2Â§lEINÂ§r]";
+        this.SilentHub_OFF = "Â§5Â§lSilent Hub Â§r[Â§4Â§lAUSÂ§r]";
+        this.Prefix = "Â§c[Â§2LobbyÂ§c] | Â§5";
     }
     
     public void showPlayer(final Player p) {

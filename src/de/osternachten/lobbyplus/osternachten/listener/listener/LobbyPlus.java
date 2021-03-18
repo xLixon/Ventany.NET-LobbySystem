@@ -4,8 +4,22 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener;
 
-import java.util.concurrent.TimeUnit;
-
+import de.leandergamesyt.commands.*;
+import de.lobbyplus.items.SaveNick;
+import de.osternachten.listener.listener.navigator.*;
+import de.osternachten.lobbyplus.osternachten.listener.listener.chat.ChatColorRed;
+import de.osternachten.lobbyplus.osternachten.listener.listener.chat.ChatManager;
+import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.*;
+import de.osternachten.lobbyplus.osternachten.listener.listener.extras.DoubleJump;
+import de.osternachten.lobbyplus.osternachten.listener.listener.extras.SecretListener;
+import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.*;
+import de.osternachten.lobbyplus.osternachten.listener.listener.opClass.op;
+import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Prefix;
+import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.SecondPrefixes;
+import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Tab;
+import de.xlixon.boots.*;
+import de.xlixon.commands.CleanChat;
+import de.xlixxn.hats.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
@@ -16,72 +30,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.leandergamesyt.commands.BuildMode;
-import de.leandergamesyt.commands.CMD_Heal;
-import de.leandergamesyt.commands.GM1;
-import de.leandergamesyt.commands.Nick;
-import de.leandergamesyt.commands.OwnPerms;
-import de.leandergamesyt.commands.PlayerPrefix;
-import de.leandergamesyt.commands.PrivatMessagesMSG;
-import de.leandergamesyt.commands.SetWarp;
-import de.leandergamesyt.commands.TestMSG;
-import de.leandergamesyt.commands.Wartungsmodus;
-import de.lobbyplus.items.SaveNick;
-import de.osternachten.listener.listener.navigator.Teleport1v1;
-import de.osternachten.listener.listener.navigator.TeleportBedWars;
-import de.osternachten.listener.listener.navigator.TeleportCityBuild;
-import de.osternachten.listener.listener.navigator.TeleportCommunity;
-import de.osternachten.listener.listener.navigator.TeleportCores;
-import de.osternachten.listener.listener.navigator.TeleportEndergames;
-import de.osternachten.listener.listener.navigator.TeleportFFA;
-import de.osternachten.listener.listener.navigator.TeleportG1v1;
-import de.osternachten.listener.listener.navigator.TeleportGunGame;
-import de.osternachten.listener.listener.navigator.TeleportJumpAndRun;
-import de.osternachten.listener.listener.navigator.TeleportLounge;
-import de.osternachten.listener.listener.navigator.TeleportSG;
-import de.osternachten.listener.listener.navigator.TeleportSkyWars;
-import de.osternachten.listener.listener.navigator.TeleportSpawn;
-import de.osternachten.listener.listener.navigator.TeleportSpeedUHC;
-import de.osternachten.listener.listener.navigator.TeleportTTT;
-import de.osternachten.listener.listener.navigator.TeleportVanilla;
-import de.osternachten.lobbyplus.osternachten.listener.listener.chat.ChatColorRed;
-import de.osternachten.lobbyplus.osternachten.listener.listener.chat.ChatManager;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InvHatsCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InvHideCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InvInventoryCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InvLobbyCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InvNaviCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InvSpecialCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.InventoryCreate;
-import de.osternachten.lobbyplus.osternachten.listener.listener.createInventorys.hider;
-import de.osternachten.lobbyplus.osternachten.listener.listener.extras.DoubleJump;
-import de.osternachten.lobbyplus.osternachten.listener.listener.extras.SecretListener;
-import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.JoinEvent;
-import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.KickAll;
-import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.LeaveEvent;
-import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.WorldProtector;
-import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.onConnectSpawnTP;
-import de.osternachten.lobbyplus.osternachten.listener.listener.opClass.op;
-import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Prefix;
-import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.SecondPrefixes;
-import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Tab;
-import de.xlixon.boots.ClearBoots;
-import de.xlixon.boots.FireBoots;
-import de.xlixon.boots.InvBootsCreate;
-import de.xlixon.boots.LavaBoots;
-import de.xlixon.boots.LoveBoots;
-import de.xlixon.boots.WaterBoots;
-import de.xlixon.commands.CleanChat;
-import de.xlixxn.hats.AviveHat;
-import de.xlixxn.hats.CloseInv;
-import de.xlixxn.hats.CreateHatsInventory;
-import de.xlixxn.hats.GommeHat;
-import de.xlixxn.hats.LPMitKevHat;
-import de.xlixxn.hats.Lumpi;
-import de.xlixxn.hats.MinimicheckerHat;
-import de.xlixxn.hats.RewiHat;
-import de.xlixxn.hats.TricketyHat;
-import de.xlixxn.hats.xLixonHat;
+import java.util.concurrent.TimeUnit;
 
 public final class LobbyPlus extends JavaPlugin {
 	public static LobbyPlus instance;
@@ -99,8 +48,8 @@ public final class LobbyPlus extends JavaPlugin {
 	public TimeUnit lastJoinM;
 	public TimeUnit lastJoinS;
 	public final ChatManager chatManager;
-	
-	public static final String noPermsError = "§7[§e!§7]§4Du hast nicht genügend Rechte für diesen Befehl!";
+
+	public static final String noPermsError = "Â§7[Â§e!Â§7]Â§4Du hast nicht genÃ¼gend Rechte fÃ¼r diesen Befehl!";
 
 	public LobbyPlus() {
 		this.chatManager = new ChatManager();

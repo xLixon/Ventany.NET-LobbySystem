@@ -4,21 +4,21 @@
 
 package de.lobbyplus.items;
 
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;
-import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class Spawn implements Listener
 {
     String displayNameSpawnItem;
     
     public Spawn() {
-        this.displayNameSpawnItem = "§6§lSpawn";
+        this.displayNameSpawnItem = "Â§6Â§lSpawn";
     }
     
     public void spawnItem(final InventoryOpenEvent e) {

@@ -21,7 +21,7 @@ public class CleanChat implements Listener, CommandExecutor {
 				Bukkit.broadcastMessage(" ");
 				i++;
 				if(i == 100) {
-					Bukkit.broadcastMessage("§c[§2Lobby§c] | §5 Chat wurde von " + sender.getName() + " gecleared");
+					Bukkit.broadcastMessage("Â§c[Â§2LobbyÂ§c] | Â§5 Chat wurde von " + sender.getName() + " gecleared");
 				}
 			}
 		}

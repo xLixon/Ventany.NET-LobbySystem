@@ -4,10 +4,10 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.chat;
 
-import org.bukkit.event.EventHandler;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class ChatColorRed implements Listener
 {

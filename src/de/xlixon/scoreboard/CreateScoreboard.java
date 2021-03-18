@@ -4,13 +4,12 @@
 
 package de.xlixon.scoreboard;
 
+import net.minecraft.server.v1_8_R3.Scoreboard;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-
-import net.minecraft.server.v1_8_R3.Scoreboard;
 
 public class CreateScoreboard implements Listener
 {

@@ -22,11 +22,9 @@ public class PrivatMessagesMSG implements CommandExecutor {
 			Player recipient = (Player) Bukkit.getPlayer(args[0]);
 			Player sender_p = (Player) sender;
 			String[] msg = {String.join(" ", args)};
-			
-			
-			
 
-			recipient.sendMessage("§cNew MSG from: " + sender_p.getName() + "\n" + msg.toString());
+
+			recipient.sendMessage("Â§cNew MSG from: " + sender_p.getName() + "\n" + msg.toString());
 			sender_p.sendMessage("\n\nMSG sendt.");
 		}
 

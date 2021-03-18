@@ -4,17 +4,18 @@
 
 package de.osternachten.listener.listener.navigator;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.Location;
-import org.bukkit.configuration.file.YamlConfiguration;
-import java.io.File;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.Bukkit;
-import org.bukkit.inventory.Inventory;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+
+import java.io.File;
 
 public class TeleportG1v1 implements Listener
 {
@@ -40,26 +41,26 @@ public class TeleportG1v1 implements Listener
     String displayNameLounge;
     
     public TeleportG1v1() {
-        this.inv = Bukkit.createInventory((InventoryHolder)null, 54);
-        this.nameNavigator = "§cNavigator";
-        this.Prefix = "§c[§2LobbySystem§c] | §5";
-        this.displayNameSpawn = "§6Spawn";
-        this.displayNameSkyWarsItem = "§aSkyWars";
-        this.displayNameBedWarsItem = "§cBed§rWars";
-        this.displayName1v1Item = "§d1v1";
-        this.displayNameCBItem = "§5Game1vs1";
-        this.displayNameCoresItem = "§b§lCores";
-        this.displayNameSpeedUHCItem = "§e§lSpeedUHC";
-        this.displayNameEGItem = "§5§lEnderGa,es";
-        this.displayNameTTTItem = "§4§lTTT";
-        this.displayNameJARItem = "§c§lJumpAndRun";
-        this.displayNameGunGameItem = "§3§lGunGame";
-        this.displayNameFFAItem = "§d§lFFA";
-        this.displayNameGame1v1Item = "§1§lGame 1vs1";
-        this.displayNameKit1v1Item = "§1§lKit 1vs1";
-        this.displayNameSGItem = "§a§lSurvivalGames";
-        this.displayNameCommunity = "§5§lCommunity";
-        this.displayNameLounge = "§6§lLounge";
+        this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
+        this.nameNavigator = "Â§cNavigator";
+        this.Prefix = "Â§c[Â§2LobbySystemÂ§c] | Â§5";
+        this.displayNameSpawn = "Â§6Spawn";
+        this.displayNameSkyWarsItem = "Â§aSkyWars";
+        this.displayNameBedWarsItem = "Â§cBedÂ§rWars";
+        this.displayName1v1Item = "Â§d1v1";
+        this.displayNameCBItem = "Â§5Game1vs1";
+        this.displayNameCoresItem = "Â§bÂ§lCores";
+        this.displayNameSpeedUHCItem = "Â§eÂ§lSpeedUHC";
+        this.displayNameEGItem = "Â§5Â§lEnderGa,es";
+        this.displayNameTTTItem = "Â§4Â§lTTT";
+        this.displayNameJARItem = "Â§cÂ§lJumpAndRun";
+        this.displayNameGunGameItem = "Â§3Â§lGunGame";
+        this.displayNameFFAItem = "Â§dÂ§lFFA";
+        this.displayNameGame1v1Item = "Â§1Â§lGame 1vs1";
+        this.displayNameKit1v1Item = "Â§1Â§lKit 1vs1";
+        this.displayNameSGItem = "Â§aÂ§lSurvivalGames";
+        this.displayNameCommunity = "Â§5Â§lCommunity";
+        this.displayNameLounge = "Â§6Â§lLounge";
     }
     
     @EventHandler
@@ -81,30 +82,30 @@ public class TeleportG1v1 implements Listener
                     final Object world = spawnPointConfig.get("navigame1v1v.WORLD");
                     final Object yaw = spawnPointConfig.get("navigame1v1.YAW");
                     if (!(X instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Game1vs1" + " " + "§rDer Wert \"X\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Game1vs1" + " " + "Â§rDer Wert \"X\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(Y instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Game1vs1" + " " + "Der Wert \"Y\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Game1vs1" + " " + "Der Wert \"Y\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(Z instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Game1vs1" + " " + "Der Wert \"Z\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Game1vs1" + " " + "Der Wert \"Z\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (!(world instanceof String)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Game1vs1" + " " + "Der Wert \"world\" ist §4KEIN §r Name.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Game1vs1" + " " + "Der Wert \"world\" ist Â§4KEIN Â§r Name.");
                         return;
                     }
                     if (!(yaw instanceof Double)) {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Game1vs1" + " " + "Der Wert \"yaw\" ist §4KEINE §r Zahl.");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Game1vs1" + " " + "Der Wert \"yaw\" ist Â§4KEINE Â§r Zahl.");
                         return;
                     }
                     if (Bukkit.getWorld((String)world) != null) {
                         p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
                     }
                     else {
-                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Game1vs1" + " " + "§cDiese Welt gibt es nicht!");
+                        p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "Â§2Location: Game1vs1" + " " + "Â§cDiese Welt gibt es nicht!");
                     }
                 }
             }

@@ -1,13 +1,12 @@
 package de.leandergamesyt.commands;
 
+import de.apis.ChangeName;
+import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-
-import de.apis.ChangeName;
-import de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus;
 
 public class Nick implements Listener, CommandExecutor{
 
@@ -15,7 +14,7 @@ public class Nick implements Listener, CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		if(!(sender instanceof Player)) {
-			sender.sendMessage("Sorry, aber nur Spieler können sich nicken.");
+			sender.sendMessage("Sorry, aber nur Spieler kÃ¶nnen sich nicken.");
 		}else {
 			Player p = (Player) sender;
 			

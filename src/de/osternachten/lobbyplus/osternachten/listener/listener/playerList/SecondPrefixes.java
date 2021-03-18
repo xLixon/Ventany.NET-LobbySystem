@@ -4,11 +4,12 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener.playerList;
 
-import org.bukkit.event.EventHandler;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerJoinEvent;
-import java.util.ArrayList;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+import java.util.ArrayList;
 
 public class SecondPrefixes implements Listener
 {
@@ -19,7 +20,7 @@ public class SecondPrefixes implements Listener
     }
     
     public static void init() {
-        registerPrefix("ง7Spieler | ", "lobby.player");
+        registerPrefix("ยง7Spieler | ", "lobby.player");
     }
     
     public static void registerPrefix(final String prefix, final String permission) {

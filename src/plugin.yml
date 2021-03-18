@@ -1,4 +1,4 @@
-name: LobbySystem
+﻿name: LobbySystem
 version: 1.0
 author: xLixon
 main: de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus
