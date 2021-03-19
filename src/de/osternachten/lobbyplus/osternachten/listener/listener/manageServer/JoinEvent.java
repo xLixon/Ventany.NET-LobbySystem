@@ -5,6 +5,7 @@
 package de.osternachten.lobbyplus.osternachten.listener.listener.manageServer;
 
 import de.apis.ChangeName;
+import de.apis.ReturnItem;
 import de.lobbyplus.items.SaveNick;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -48,9 +49,27 @@ public class JoinEvent implements Listener
     public TimeUnit lastJoinM;
     public TimeUnit lastJoinS;
     String lastPlayed;
-    
+
+
+    ItemStack itemNavi;
+    ItemStack itemHide;
+    ItemStack itemSilent;
+    ItemStack itemInv;
+    ItemStack itemNick;
+    ItemStack itemLobby;
+    ItemStack itemSecret;
+
+    ItemMeta itemmetaNavi;
+    ItemMeta itemmetaHide;
+    ItemMeta itemmetaSilent;
+    ItemMeta itemmetaInv;
+    ItemMeta itemmetaNick;
+    ItemMeta itemmetaLobby;
+    ItemMeta itemmetaSecret;
+
+
     @SuppressWarnings("static-access")
-	public JoinEvent() {
+    public JoinEvent() {
         this.displayNameNavi = "§cNavigator";
         this.displayNameHide = "§6Spieler verstecken";
         this.displayNameSilent = "§5Silent Hub";
@@ -68,8 +87,7 @@ public class JoinEvent implements Listener
         this.displayNameNick = "§6Nick-Tool";
     }
     
-    public static void main(final String[] args) {
-    }
+
     
     public void onDisconnect(final PlayerQuitEvent e) {
         final Player p = e.getPlayer();
@@ -81,6 +99,8 @@ public class JoinEvent implements Listener
     @SuppressWarnings("static-access")
 	@EventHandler
     public void onJoin(final PlayerJoinEvent e) {
+
+
         final Player player = e.getPlayer();
         if (!(player instanceof Player)) {
             return;
@@ -88,45 +108,22 @@ public class JoinEvent implements Listener
         player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
         e.setJoinMessage("");
         player.setFlySpeed(0.2f);
-        final ItemStack itemNavi = new ItemStack(Material.COMPASS);
-        final ItemMeta itemmetaNavi = itemNavi.getItemMeta();
-        itemmetaNavi.setDisplayName(this.displayNameNavi);
-        itemNavi.setItemMeta(itemmetaNavi);
-        player.getInventory().setItem(0, itemNavi);
-        final ItemStack itemHide = new ItemStack(Material.BLAZE_ROD);
-        final ItemMeta itemmetaHide = itemHide.getItemMeta();
-        itemmetaHide.setDisplayName(this.displayNameHide);
-        itemHide.setItemMeta(itemmetaHide);
-        player.getInventory().setItem(1, itemHide);
-        if (player.hasPermission("lobby.permission.silenthub")) {
-            final ItemStack itemSilent = new ItemStack(Material.TNT);
-            final ItemMeta itemmetaSilent = itemSilent.getItemMeta();
-            itemmetaSilent.setDisplayName(this.displayNameSilent);
-            itemSilent.setItemMeta(itemmetaSilent);
-            player.getInventory().setItem(2, itemSilent);
+
+
+        player.getInventory().setItem(0, ReturnItem.addItem(Material.COMPASS, displayNameNavi));
+        player.getInventory().setItem(1, ReturnItem.addItem(Material.BLAZE_ROD, displayNameHide));
+        if (player.hasPermission("lobby.perm.silenthub")) {
+            player.getInventory().setItem(2, ReturnItem.addItem(Material.TNT, displayNameSilent));
         }
-        final ItemStack itemInv = new ItemStack(Material.CHEST);
-        final ItemMeta itemmetaInv = itemInv.getItemMeta();
-        itemmetaInv.setDisplayName(this.displayNameInv);
-        itemInv.setItemMeta(itemmetaInv);
-        player.getInventory().setItem(4, itemInv);
-        if (player.hasPermission("lobby.permission.nick")) {
-            final ItemStack itemNick = new ItemStack(Material.NAME_TAG);
-            final ItemMeta itemmetaNick = itemNick.getItemMeta();
-            itemmetaNick.setDisplayName(this.displayNameNick);
-            itemNick.setItemMeta(itemmetaNick);
-            player.getInventory().setItem(6, itemNick);
+        player.getInventory().setItem(4, ReturnItem.addItem(Material.CHEST, displayNameInv));
+        if (player.hasPermission("lobby.perm.nick")) {
+            player.getInventory().setItem(6, ReturnItem.addItem(Material.NAME_TAG, displayNameNick));
         }
-        final ItemStack itemLobby = new ItemStack(Material.NETHER_STAR);
-        final ItemMeta itemmetaLobby = itemLobby.getItemMeta();
-        itemmetaLobby.setDisplayName(this.displayNameLobby);
-        itemLobby.setItemMeta(itemmetaLobby);
-        player.getInventory().setItem(8, itemLobby);
-        final ItemStack itemSecret = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short)8);
-        final ItemMeta itemmetaSecret = itemSecret.getItemMeta();
-        itemmetaSecret.setDisplayName(this.displayNameSecret);
-        itemSecret.setItemMeta(itemmetaSecret);
-        player.getInventory().setItem(9, itemSecret);
+        player.getInventory().setItem(8, ReturnItem.addItem(Material.NETHER_STAR, displayNameLobby));
+        player.getInventory().setItem(9, ReturnItem.addItem(Material.STAINED_GLASS_PANE, displayNameSecret));
+        ;
+
+
         player.setFoodLevel(20);
         player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 10, 2));
         player.setGameMode(GameMode.SURVIVAL);

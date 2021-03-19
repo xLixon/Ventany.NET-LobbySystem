@@ -62,7 +62,7 @@ public class Teleport1v1 implements Listener
         this.displayNameCommunity = "§5§lCommunity";
         this.displayNameLounge = "§6§lLounge";
     }
-    
+
     @EventHandler
     public void invClickSPTP(final InventoryClickEvent e) {
         final Player p = (Player)e.getWhoClicked();

@@ -15,8 +15,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-public class InventoryCreate implements Listener
-{
+import java.util.logging.Level;
+
+public class InventoryCreate implements Listener {
+    private final Location naviSpawn;
     Inventory inv;
     String nameNavigator;
     String Prefix;
@@ -27,7 +29,7 @@ public class InventoryCreate implements Listener
     String displayNameCBItem;
     String displayNameODV;
     String displayName;
-    
+
     public InventoryCreate() {
         this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
         this.nameNavigator = "§cNavigator";
@@ -38,51 +40,40 @@ public class InventoryCreate implements Listener
         this.displayName1v1Item = "§d1v1";
         this.displayNameCBItem = "§5CityBuild";
         this.displayNameODV = "§2OneDayVaro";
+        this.naviSpawn = loadWarp("navispawn");
     }
-    
-    
-    
-    
-    
-    
-    
+
+    public Location loadWarp(String warpName) {
+        String world = LobbyPlus.instance.getConfig().getString(warpName + ".WORLD");
+        double x = LobbyPlus.instance.getConfig().getDouble(warpName + ".X");
+        double y = LobbyPlus.instance.getConfig().getDouble(warpName + ".Y");
+        double z = LobbyPlus.instance.getConfig().getDouble(warpName + ".Z");
+        double yaw = LobbyPlus.instance.getConfig().getDouble(warpName + ".YAW");
+        double pitch = LobbyPlus.instance.getConfig().getDouble(warpName + ".PITCH");
+
+        return new Location(Bukkit.getWorld(world), x, y, z, (float) yaw, (float) pitch);
+    }
+
+
     @EventHandler
     public void naviTP(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         try {
             if (e.getInventory().getName().equalsIgnoreCase("§4Navigator")) {
                 e.setCancelled(true);
                 if (e.getCurrentItem().getType() == Material.MAGMA_CREAM) {
-                    final String warp = LobbyPlus.instance.getConfig().getString("Warp.Name");
-                    final String world = LobbyPlus.instance.getConfig().getString(".WORLD");
-                    final double x = LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".X");
-                    final double y = LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".Y");
-                    final double z = LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".Z");
-                    LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".PITCH");
-                    LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".YAW");
-                    final Location loc = new Location(Bukkit.getWorld(world), x, y, z);
-                    p.teleport(loc);
+                    p.teleport(this.naviSpawn);
                     p.closeInventory();
-                    p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "6 Du wurdest zu " + warp + " teleportiert.");
+                    p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "§6 Du wurdest zum Spawn teleportiert.");
                 }
             }
-            if (e.getInventory().getName().equalsIgnoreCase("§aSkyWars")) {
-                e.setCancelled(true);
-                if (e.getCurrentItem().getType() == Material.GRASS) {
-                    final String warp = LobbyPlus.instance.getConfig().getString("Warp.Name");
-                    final String world = LobbyPlus.instance.getConfig().getString(".WORLD");
-                    final double x = LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".X");
-                    final double y = LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".Y");
-                    final double z = LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".Z");
-                    LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".PITCH");
-                    LobbyPlus.instance.getConfig().getDouble(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(warp)))))) + ".YAW");
-                    final Location loc = new Location(Bukkit.getWorld(world), x, y, z);
-                    p.teleport(loc);
-                    p.closeInventory();
-                    p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "6 Du wurdest zu " + warp + " teleportiert.");
-                }
-            }
+
+        } catch (Exception ex) {
+            Bukkit.getLogger().log(Level.WARNING, "§4Plugin gecrashed", ex);
+            Bukkit.getPluginManager().disablePlugin(LobbyPlus.instance);
+
         }
-        catch (Exception ex) {}
+
+
     }
 }

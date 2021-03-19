@@ -155,7 +155,6 @@ public final class LobbyPlus extends JavaPlugin {
 		pm.registerEvents((Listener) new TeleportTTT(), (Plugin) this);
 		pm.registerEvents((Listener) new TeleportLounge(), (Plugin) this);
 		pm.registerEvents((Listener) new InvHatsCreate(), (Plugin) this);
-
 		pm.registerEvents((Listener) new InvBootsCreate(), (Plugin) this);
 		pm.registerEvents((Listener) new InvSpecialCreate(), (Plugin) this);
 		pm.registerEvents((Listener) new FireBoots(), (Plugin) this);
@@ -177,5 +176,6 @@ public final class LobbyPlus extends JavaPlugin {
 		pm.registerEvents(new xLixonHat(), this);
 		pm.registerEvents(new TricketyHat(), this);
 		pm.registerEvents(new TeleportVanilla(), this);
+		pm.registerEvents(new ChatManager(), this);
 	}
 }
