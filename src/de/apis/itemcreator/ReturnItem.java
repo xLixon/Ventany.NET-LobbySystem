@@ -1,4 +1,4 @@
-package de.apis;
+package de.apis.itemcreator;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

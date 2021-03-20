@@ -1,6 +1,5 @@
 package de.osternachten.lobbyplus.osternachten.listener.listener.scoreboards;
 
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,28 +10,32 @@ import org.bukkit.scoreboard.Scoreboard;
 
 public class ScoreboardSidebar implements Listener {
 
+    String serverName = "§lVENTANY.NET";
+
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
+
         Player p = e.getPlayer();
         Scoreboard board = p.getScoreboard();
 
         if (board != null) {
-            Objective playerCount = board.getObjective("§4§lVentany.NET");
+            Objective playerCount = board.getObjective(serverName);
             if (playerCount == null) {
-                playerCount = board.registerNewObjective("§4§lVentany.NET", "dummy");
+                playerCount = board.registerNewObjective(serverName, "dummy");
 
 
             }
-            playerCount.getScore("§7-----------").setScore(1);
-            playerCount.getScore("§aWillkommen").setScore(0);
-            playerCount.getScore(ChatColor.AQUA + p.getName()).setScore(-1);
-            playerCount.getScore("§7-----------").setScore(-2);
-            playerCount.getScore("§cDein Rang:").setScore(0);
-            playerCount.getScore("§4").setScore(-1);
-            playerCount.getScore("§7-----------").setScore(-2);
-            playerCount.getScore("Dein Ping:").setScore(-3);
-            playerCount.getScore("[ping]").setScore(-4);
-            playerCount.getScore("§7-----------").setScore(-5);
+            playerCount.getScore("§7").setScore(14);
+            playerCount.getScore("Rank§7:").setScore(13);
+            playerCount.getScore("§4").setScore(12);
+            playerCount.getScore("Coins§7:").setScore(11);
+            playerCount.getScore("§eCOINS").setScore(10);
+            playerCount.getScore("§6").setScore(9);
+            playerCount.getScore("Clan§7:").setScore(8);
+            playerCount.getScore("CLAN").setScore(7);
+            playerCount.getScore("§e").setScore(6);
+            playerCount.getScore("Freunde§7:").setScore(5);
+            playerCount.getScore("§ax§7/§cx").setScore(4);
             playerCount.setDisplaySlot(DisplaySlot.SIDEBAR);
         }
 

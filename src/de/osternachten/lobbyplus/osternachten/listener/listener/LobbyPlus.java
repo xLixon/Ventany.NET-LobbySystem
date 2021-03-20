@@ -131,7 +131,6 @@ public final class LobbyPlus extends JavaPlugin {
 		pm.registerEvents((Listener) new de.lobbyplus.items.SilentHub(), (Plugin) this);
 		pm.registerEvents((Listener) new de.lobbyplus.items.Shield(), (Plugin) this);
 		pm.registerEvents((Listener) new WorldProtector(), (Plugin) this);
-		pm.registerEvents((Listener) new hider(), (Plugin) this);
 		pm.registerEvents((Listener) new SecretListener(), (Plugin) this);
 		pm.registerEvents((Listener) new Tab(null), (Plugin) this);
 		pm.registerEvents((Listener) new LeaveEvent(), (Plugin) this);
@@ -177,7 +176,6 @@ public final class LobbyPlus extends JavaPlugin {
 		pm.registerEvents(new xLixonHat(), this);
 		pm.registerEvents(new TricketyHat(), this);
 		pm.registerEvents(new TeleportVanilla(), this);
-		pm.registerEvents(new ChatManager(), this);
 		pm.registerEvents(new ScoreboardSidebar(), this);
 	}
 }

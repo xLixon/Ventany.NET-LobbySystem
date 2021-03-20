@@ -78,6 +78,8 @@ public class InvHideCreate implements Listener
                 return;
             }
             if (e.getItem().getType() == Material.BLAZE_ROD && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameHide)) {
+
+
                 final Inventory inv = Bukkit.createInventory((InventoryHolder) e.getPlayer(), 27, this.nameHide);
                 final ItemStack itemSee = new ItemStack(Material.INK_SACK, 1, (short) 10);
                 final ItemMeta itemmetaSee = itemSee.getItemMeta();
