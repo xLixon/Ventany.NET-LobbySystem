@@ -17,6 +17,7 @@ import de.osternachten.lobbyplus.osternachten.listener.listener.opClass.op;
 import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Prefix;
 import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.SecondPrefixes;
 import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Tab;
+import de.osternachten.lobbyplus.osternachten.listener.listener.scoreboards.ScoreboardSidebar;
 import de.xlixon.boots.*;
 import de.xlixon.commands.CleanChat;
 import de.xlixxn.hats.*;
@@ -177,5 +178,6 @@ public final class LobbyPlus extends JavaPlugin {
 		pm.registerEvents(new TricketyHat(), this);
 		pm.registerEvents(new TeleportVanilla(), this);
 		pm.registerEvents(new ChatManager(), this);
+		pm.registerEvents(new ScoreboardSidebar(), this);
 	}
 }
