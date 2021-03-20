@@ -18,15 +18,14 @@ import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 
-public class Shield implements Listener
-{
+public class Shield implements Listener {
     String Shield_ON;
     String Shield_ON_ON;
     String Shield_OFF;
     String Shield_OFF_OFF;
     String Prefix;
     public ArrayList<Player> shieldedPlayers;
-    
+
     public Shield() {
         this.Shield_ON = "§5§lSchutzschild §r[§2§lEIN§r]";
         this.Shield_ON_ON = "§r[§2§lEIN§r]";
@@ -35,7 +34,7 @@ public class Shield implements Listener
         this.Prefix = "§c[§2Lobby§c] | §5";
         this.shieldedPlayers = new ArrayList<Player>();
     }
-    
+
     @EventHandler
     public void onInteract(final PlayerInteractEvent e) {
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
@@ -50,8 +49,7 @@ public class Shield implements Listener
                     shieldmeta.setDisplayName(this.Shield_OFF);
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "Dein Schild ist jetzt " + this.Shield_OFF_OFF);
                     this.shieldedPlayers.remove(p);
-                }
-                else {
+                } else {
                     shieldmeta.setDisplayName(this.Shield_ON);
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "Dein Schild ist jetzt " + this.Shield_ON_ON);
                     this.shieldedPlayers.add(p);
@@ -60,7 +58,7 @@ public class Shield implements Listener
             }
         }
     }
-    
+
     @EventHandler
     public void onMove(final PlayerMoveEvent e) {
         final Player p = e.getPlayer();
@@ -73,8 +71,7 @@ public class Shield implements Listener
                     otherPlayers.setVelocity(new Vector(x, y, z).normalize().multiply(2).setY(0.3));
                 }
             }
-        }
-        else {
+        } else {
             for (final Player otherPlayers : this.shieldedPlayers) {
                 if (p.getLocation().distanceSquared(otherPlayers.getLocation()) <= 7.0) {
                     final double x = p.getLocation().getX() - otherPlayers.getLocation().getX();

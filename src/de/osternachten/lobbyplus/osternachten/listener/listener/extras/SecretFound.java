@@ -9,11 +9,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class SecretFound implements Listener
-{
+public class SecretFound implements Listener {
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (e.getClickedInventory().getTitle().equalsIgnoreCase("") && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("\u00c2§9Wow, ein Secret")) {
             if (e.getCurrentItem() == null) {
                 return;

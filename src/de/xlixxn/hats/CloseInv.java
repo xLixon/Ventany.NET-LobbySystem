@@ -11,8 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class CloseInv implements Listener
-{
+public class CloseInv implements Listener {
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         if (e.isRightClick() || e.isLeftClick()) {

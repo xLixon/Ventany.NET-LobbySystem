@@ -17,14 +17,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
-public class InvBootsCreate implements Listener
-{
+public class InvBootsCreate implements Listener {
     String loveBootsName;
     String waterBootsName;
     String fireBootsName;
     String lavaBootsName;
     String clearBoots;
-    
+
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         this.loveBootsName = "§dLove Boots";
@@ -54,15 +53,15 @@ public class InvBootsCreate implements Listener
                     waterBootsMeta.setDisplayName(this.waterBootsName);
                     waterBoots.setItemMeta((ItemMeta) waterBootsMeta);
                     final ItemStack fireBoots = new ItemStack(Material.LEATHER_BOOTS);
-                    final LeatherArmorMeta fireBootsMeta = (LeatherArmorMeta)fireBoots.getItemMeta();
+                    final LeatherArmorMeta fireBootsMeta = (LeatherArmorMeta) fireBoots.getItemMeta();
                     fireBootsMeta.setColor(Color.ORANGE);
                     fireBootsMeta.setDisplayName(this.fireBootsName);
-                    fireBoots.setItemMeta((ItemMeta)fireBootsMeta);
+                    fireBoots.setItemMeta((ItemMeta) fireBootsMeta);
                     final ItemStack lavaBoots = new ItemStack(Material.LEATHER_BOOTS);
-                    final LeatherArmorMeta lavaBootsMeta = (LeatherArmorMeta)lavaBoots.getItemMeta();
+                    final LeatherArmorMeta lavaBootsMeta = (LeatherArmorMeta) lavaBoots.getItemMeta();
                     lavaBootsMeta.setColor(Color.RED);
                     lavaBootsMeta.setDisplayName(this.lavaBootsName);
-                    lavaBoots.setItemMeta((ItemMeta)lavaBootsMeta);
+                    lavaBoots.setItemMeta((ItemMeta) lavaBootsMeta);
                     final ItemStack ClearBoots = new ItemStack(Material.BARRIER);
                     final ItemMeta itemmetaClear = ClearBoots.getItemMeta();
                     itemmetaClear.setDisplayName(this.clearBoots);

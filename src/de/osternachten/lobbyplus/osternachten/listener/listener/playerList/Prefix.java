@@ -14,26 +14,25 @@ public class Prefix implements Listener {
     public void onChat(final AsyncPlayerChatEvent e) {
         final Player p = e.getPlayer();
 
-        final String prefix_Team_Owner_Chat = "§4Administrator ▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Team_Owner_Chat = "§4Administrator §7▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Team_TeamLeitung_Chat = "§cTeam Leitung ▎ §c" + p.getName() + " §7==>§r \" + e.getMessage()";
+        final String prefix_Team_TeamLeitung_Chat = "§cTeam Leitung §7▎ §c" + p.getName() + " §7==>§r \" + e.getMessage()";
 
-        final String prefix_Team_Developer_Chat = "§bDeveloper ▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Team_Developer_Chat = "§bDeveloper §7▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Team_Moderator_Chat = "§cModerator ▎ " + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Team_Moderator_Chat = "§cModerator §7▎ " + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Team_Supporter_Chat = "§3Supporter ▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Team_Supporter_Chat = "§3Supporter §7▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Team_Builder_Chat = "§2Builder ▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Team_Builder_Chat = "§2Builder §7▎ §c" + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Player_YouTuber_Chat = "§5YouTuber ▎ " + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Player_YouTuber_Chat = "§5YouTuber §7▎ " + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Player_PremiumPlus_Chat = "§ePremium+ ▎ " + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Player_PremiumPlus_Chat = "§ePremium+ §7▎ " + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Player_Premium_Chat = "§6Premium ▎ " + p.getName() + " §7==>§r " + e.getMessage();
+        final String prefix_Player_Premium_Chat = "§6Premium §7▎ §e" + p.getName() + " §7==>§r " + e.getMessage();
 
-        final String prefix_Player_Spieler_Chat = "§7Spieler ▎ " + p.getName() + " §7==>§r " + e.getMessage();
-
+        final String prefix_Player_Spieler_Chat = "§aSpieler §7▎ " + p.getName() + " §7==>§r " + e.getMessage();
 
         if (p.hasPermission("lobby.owner")) {
             e.setFormat(prefix_Team_Owner_Chat);

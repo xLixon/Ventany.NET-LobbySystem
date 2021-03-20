@@ -14,24 +14,23 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
-public class FireBoots implements Listener
-{
+public class FireBoots implements Listener {
     String FireBootsName;
     Boolean toggle;
-    
+
     public FireBoots() {
         this.toggle = false;
     }
-    
+
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         this.FireBootsName = "§cFire Boots";
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         final ItemStack FireBoots = new ItemStack(Material.LEATHER_BOOTS);
-        final LeatherArmorMeta fireBootsMeta = (LeatherArmorMeta)FireBoots.getItemMeta();
+        final LeatherArmorMeta fireBootsMeta = (LeatherArmorMeta) FireBoots.getItemMeta();
         fireBootsMeta.setColor(Color.ORANGE);
         fireBootsMeta.setDisplayName(this.FireBootsName);
-        FireBoots.setItemMeta((ItemMeta)fireBootsMeta);
+        FireBoots.setItemMeta((ItemMeta) fireBootsMeta);
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;

@@ -77,20 +77,19 @@ public final class LobbyPlus extends JavaPlugin {
 		this.getCommand("build").setExecutor(new BuildMode());
 		this.getCommand("test").setExecutor(new TestMSG());
 		this.getCommand("msg").setExecutor(new PrivatMessagesMSG());
-		
+
 	}
 
 	public void onDisconnect(final PlayerQuitEvent e) {
 		final Player p = e.getPlayer();
 		p.getInventory().clear();
 		e.setQuitMessage(" ");
-		
+
 	}
 
 	public void onJoin(final PlayerJoinEvent e) {
-		@SuppressWarnings("unused")
-		final Player p = e.getPlayer();
-		
+		@SuppressWarnings("unused") final Player p = e.getPlayer();
+
 	}
 
 	public void onDisable() {

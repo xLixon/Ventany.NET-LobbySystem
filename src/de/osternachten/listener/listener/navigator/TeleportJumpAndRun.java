@@ -17,8 +17,7 @@ import org.bukkit.inventory.InventoryHolder;
 
 import java.io.File;
 
-public class TeleportJumpAndRun implements Listener
-{
+public class TeleportJumpAndRun implements Listener {
     Inventory inv;
     String nameNavigator;
     String Prefix;
@@ -39,7 +38,7 @@ public class TeleportJumpAndRun implements Listener
     String displayNameSGItem;
     String displayNameCommunity;
     String displayNameLounge;
-    
+
     public TeleportJumpAndRun() {
         this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
         this.nameNavigator = "§cNavigator";
@@ -62,16 +61,16 @@ public class TeleportJumpAndRun implements Listener
         this.displayNameCommunity = "§5§lCommunity";
         this.displayNameLounge = "§6§lLounge";
     }
-    
+
     @EventHandler
     public void invClickSPTP(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;
             }
             if (e.getClickedInventory().contains(Material.DIAMOND_BOOTS)) {
-                if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR)) {
+                if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR)) {
                     return;
                 }
                 if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.displayNameJARItem)) {
@@ -101,10 +100,9 @@ public class TeleportJumpAndRun implements Listener
                         p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: JumpAndRun" + " " + "Der Wert \"yaw\" ist §4KEINE §r Zahl.");
                         return;
                     }
-                    if (Bukkit.getWorld((String)world) != null) {
-                        p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
-                    }
-                    else {
+                    if (Bukkit.getWorld((String) world) != null) {
+                        p.teleport(new Location(Bukkit.getWorld((String) world), (double) X, (double) Y, (double) Z, (float) Math.floor((double) yaw), 0.0f));
+                    } else {
                         p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: JumpAndRun" + " " + "§cDiese Welt gibt es nicht!");
                     }
                 }

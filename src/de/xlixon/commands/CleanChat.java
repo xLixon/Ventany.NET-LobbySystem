@@ -9,24 +9,24 @@ import org.bukkit.event.Listener;
 
 public class CleanChat implements Listener, CommandExecutor {
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-		int i = 0;
+        int i = 0;
 
-		Player p = (Player) sender;
+        Player p = (Player) sender;
 
-		if (p.hasPermission("lobby.clean.chat")) {
-			while (i < 100) {
-				Bukkit.broadcastMessage(" ");
-				i++;
-				if(i == 100) {
-					Bukkit.broadcastMessage("§c[§2Lobby§c] | §5 Chat wurde von " + sender.getName() + " gecleared");
-				}
-			}
-		}
+        if (p.hasPermission("lobby.clean.chat")) {
+            while (i < 100) {
+                Bukkit.broadcastMessage(" ");
+                i++;
+                if (i == 100) {
+                    Bukkit.broadcastMessage("§c[§2Lobby§c] | §5 Chat wurde von " + sender.getName() + " gecleared");
+                }
+            }
+        }
 
-		return false;
-	}
+        return false;
+    }
 
 }

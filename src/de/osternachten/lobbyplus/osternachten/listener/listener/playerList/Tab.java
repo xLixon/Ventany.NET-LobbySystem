@@ -18,8 +18,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
-public class Tab implements Listener
-{
+public class Tab implements Listener {
     String headerInhalt;
     String footerInhalt;
     String playerPing;
@@ -27,24 +26,22 @@ public class Tab implements Listener
     String nameConfig;
     final Object Name;
     File f = new File("plugins/LobbySystem/tab.yml");
-    
+
     public Tab(String nameConfig) {
-    	
-    	this.nameConfig = nameConfig;
-		
-		
-		YamlConfiguration config = YamlConfiguration.loadConfiguration(f);
-		
-        
+
+        this.nameConfig = nameConfig;
+
+        YamlConfiguration config = YamlConfiguration.loadConfiguration(f);
+
         nameConfig = (String) config.get("Servername: ");
-		
+
         this.Name = nameConfig;
-		
-        
+
+
     }
-    
+
     @SuppressWarnings("rawtypes")
-	public void sendTablistHeaderAndFooter(final Player p, String header, String footer) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
+    public void sendTablistHeaderAndFooter(final Player p, String header, String footer) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
         this.footerInhalt = "";
         this.headerInhalt = "Dein Ping: ms";
         this.taber = "      ";
@@ -61,22 +58,20 @@ public class Tab implements Listener
             final Field field = headerPacket.getClass().getDeclaredField("b");
             field.setAccessible(true);
             field.set(headerPacket, tabFooter);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return;
+        } finally {
+            ((CraftPlayer) p).getHandle().playerConnection.sendPacket((Packet) headerPacket);
         }
-        finally {
-            ((CraftPlayer)p).getHandle().playerConnection.sendPacket((Packet)headerPacket);
-        }
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket((Packet)headerPacket);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket((Packet)headerPacket);
+        ((CraftPlayer) p).getHandle().playerConnection.sendPacket((Packet) headerPacket);
+        ((CraftPlayer) p).getHandle().playerConnection.sendPacket((Packet) headerPacket);
     }
-    
+
     @EventHandler
     public void onJoin(final PlayerJoinEvent e) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
-    	
-    	System.out.println("Der aktuelle Servername: " + this.Name);
+
+        System.out.println("Der aktuelle Servername: " + this.Name);
         final Player p = e.getPlayer();
         this.sendTablistHeaderAndFooter(p, "§e" + this.Name + " §2Lobby\n §7Du willst zu einem Spielmodi? Rechtsklick auf den Navigator!\n ", "§7Spiele mit deinen Freunden und habe Spa\u00df.\n §7Adde deine §aFreunde §7mit §a/friend §7und \n §7erstelle coole §5Partys §7mit §5/party\n");
     }

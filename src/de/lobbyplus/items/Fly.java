@@ -15,14 +15,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
-public class Fly implements Listener
-{
+public class Fly implements Listener {
     String Prefix;
     String Fly_ON;
     String Fly_ON_ON;
     String Fly_OFF;
     public ArrayList<Player> flyPlayers;
-    
+
     public Fly() {
         this.Prefix = "§c[§2Lobby§c] | §5";
         this.Fly_ON = "§a§lFlymode aktiviert";
@@ -30,7 +29,7 @@ public class Fly implements Listener
         this.Fly_OFF = "§4§lFlymode deaktiviert";
         this.flyPlayers = new ArrayList<Player>();
     }
-    
+
     @EventHandler
     public void onInteract(final PlayerInteractEvent e) {
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
@@ -46,8 +45,7 @@ public class Fly implements Listener
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + this.Fly_OFF);
                     this.flyPlayers.remove(p);
                     p.setAllowFlight(false);
-                }
-                else {
+                } else {
                     flymeta.setDisplayName(this.Fly_ON);
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + this.Fly_ON);
                     this.flyPlayers.add(p);

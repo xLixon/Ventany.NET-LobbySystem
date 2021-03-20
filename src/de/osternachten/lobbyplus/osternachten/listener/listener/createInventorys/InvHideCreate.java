@@ -21,8 +21,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvHideCreate implements Listener
-{
+public class InvHideCreate implements Listener {
     Inventory inv;
     String nameNavigator;
     String nameHide;
@@ -41,7 +40,7 @@ public class InvHideCreate implements Listener
     String displayNameLobby2;
     String displayNameLobby3;
     String closeInv;
-    
+
     public InvHideCreate() {
         this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
         this.nameNavigator = "§cNavigator";
@@ -62,9 +61,9 @@ public class InvHideCreate implements Listener
         this.displayNameLobby3 = "§bLobby 3";
         this.closeInv = "§cInventar schlie\u00dfen";
     }
-    
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	@EventHandler
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    @EventHandler
     public void onInteract(final PlayerInteractEvent e) {
         final ArrayList<String> loreSEE = new ArrayList<String>();
         loreSEE.add(ChatColor.RESET + "§2Hier siehst du alle Spieler auf deiner Lobby");
@@ -79,22 +78,21 @@ public class InvHideCreate implements Listener
             }
             if (e.getItem().getType() == Material.BLAZE_ROD && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameHide)) {
 
-
                 final Inventory inv = Bukkit.createInventory((InventoryHolder) e.getPlayer(), 27, this.nameHide);
                 final ItemStack itemSee = new ItemStack(Material.INK_SACK, 1, (short) 10);
                 final ItemMeta itemmetaSee = itemSee.getItemMeta();
                 itemmetaSee.setDisplayName(this.nameHideSee);
-                itemmetaSee.setLore((List)loreSEE);
+                itemmetaSee.setLore((List) loreSEE);
                 itemSee.setItemMeta(itemmetaSee);
-                final ItemStack itemVIP = new ItemStack(Material.INK_SACK, 1, (short)5);
+                final ItemStack itemVIP = new ItemStack(Material.INK_SACK, 1, (short) 5);
                 final ItemMeta itemmetaVIP = itemVIP.getItemMeta();
                 itemmetaVIP.setDisplayName(this.nameHideVIP);
-                itemmetaVIP.setLore((List)loreVIP);
+                itemmetaVIP.setLore((List) loreVIP);
                 itemVIP.setItemMeta(itemmetaVIP);
-                final ItemStack itemNone = new ItemStack(Material.INK_SACK, 1, (short)1);
+                final ItemStack itemNone = new ItemStack(Material.INK_SACK, 1, (short) 1);
                 final ItemMeta itemmetaNone = itemNone.getItemMeta();
                 itemmetaNone.setDisplayName(this.nameHideNone);
-                itemmetaNone.setLore((List)loreHIDE);
+                itemmetaNone.setLore((List) loreHIDE);
                 itemNone.setItemMeta(itemmetaNone);
                 final ItemStack closeInv = new ItemStack(Material.BARRIER);
                 final ItemMeta itemmeetaCloseInv = closeInv.getItemMeta();
@@ -108,13 +106,13 @@ public class InvHideCreate implements Listener
             }
         }
     }
-    
+
     public void showPlayer(final Player p) {
         for (final Player all : Bukkit.getOnlinePlayers()) {
             p.showPlayer(all);
         }
     }
-    
+
     public void showVIP(final Player p) {
         for (final Player all : Bukkit.getOnlinePlayers()) {
             if (all.hasPermission("lobby.hide.vip")) {
@@ -122,16 +120,16 @@ public class InvHideCreate implements Listener
             }
         }
     }
-    
+
     public void hidePlayer(final Player p) {
         for (final Player all : Bukkit.getOnlinePlayers()) {
             p.hidePlayer(all);
         }
     }
-    
+
     @EventHandler
     private void closeInv(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (p.getOpenInventory().getTitle().equalsIgnoreCase(this.nameHide)) {
             if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 return;
@@ -141,10 +139,10 @@ public class InvHideCreate implements Listener
             }
         }
     }
-    
+
     @EventHandler
     private void onClickSee(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (p.getOpenInventory().getTitle().equalsIgnoreCase(this.nameHide)) {
             if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 return;
@@ -157,12 +155,12 @@ public class InvHideCreate implements Listener
             p.closeInventory();
         }
     }
-    
+
     @EventHandler
     private void onClickVIP(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (p.getOpenInventory().getTitle().equalsIgnoreCase(this.nameHide)) {
-            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
+            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 return;
             }
             if (!e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameHideVIP)) {
@@ -176,12 +174,12 @@ public class InvHideCreate implements Listener
             p.closeInventory();
         }
     }
-    
+
     @EventHandler
     private void onClickNone(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (p.getOpenInventory().getTitle().equalsIgnoreCase(this.nameHide)) {
-            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
+            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR) || !e.getCurrentItem().hasItemMeta() || !e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 return;
             }
             if (!e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameHideNone)) {

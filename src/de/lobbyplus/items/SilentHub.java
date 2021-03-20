@@ -14,26 +14,25 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class SilentHub implements Listener
-{
+public class SilentHub implements Listener {
     int silenthubstatus;
     String SilentHub_ON;
     String SilentHub_OFF;
     String Prefix;
-    
+
     public SilentHub() {
         this.silenthubstatus = 0;
         this.SilentHub_ON = "§5§lSilent Hub §r[§2§lEIN§r]";
         this.SilentHub_OFF = "§5§lSilent Hub §r[§4§lAUS§r]";
         this.Prefix = "§c[§2Lobby§c] | §5";
     }
-    
+
     public void showPlayer(final Player p) {
         for (final Player all : Bukkit.getOnlinePlayers()) {
             p.showPlayer(all);
         }
     }
-    
+
     public void showVIP(final Player p) {
         for (final Player all : Bukkit.getOnlinePlayers()) {
             if (all.hasPermission("lobby.hide.vip")) {
@@ -41,13 +40,13 @@ public class SilentHub implements Listener
             }
         }
     }
-    
+
     public void hidePlayer(final Player p) {
         for (final Player all : Bukkit.getOnlinePlayers()) {
             p.hidePlayer(all);
         }
     }
-    
+
     @EventHandler
     public void onInteract(final PlayerInteractEvent e) {
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
@@ -63,8 +62,7 @@ public class SilentHub implements Listener
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "Du bist jetzt nicht mehr auf der Silent Lobby!");
                     this.showPlayer(p);
                     e.setCancelled(true);
-                }
-                else {
+                } else {
                     silenthubdmeta.setDisplayName(this.SilentHub_ON);
                     p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + "Du bist jetzt auf der Silent Lobby!");
                     this.hidePlayer(p);

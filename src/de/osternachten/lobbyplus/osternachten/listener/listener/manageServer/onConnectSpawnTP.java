@@ -16,8 +16,7 @@ import org.bukkit.inventory.InventoryHolder;
 
 import java.io.File;
 
-public class onConnectSpawnTP implements Listener
-{
+public class onConnectSpawnTP implements Listener {
     Inventory inv;
     String nameNavigator;
     String Prefix;
@@ -27,7 +26,7 @@ public class onConnectSpawnTP implements Listener
     String displayName1v1Item;
     String displayNameCBItem;
     String displayNameODV;
-    
+
     public onConnectSpawnTP() {
         this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
         this.nameNavigator = "§cNavigator";
@@ -39,7 +38,7 @@ public class onConnectSpawnTP implements Listener
         this.displayNameCBItem = "§5CityBuild";
         this.displayNameODV = "§2OneDayVaro";
     }
-    
+
     @EventHandler
     public void joinTP(final PlayerJoinEvent e) {
         final Player p = e.getPlayer();
@@ -68,10 +67,9 @@ public class onConnectSpawnTP implements Listener
                     return;
                 }
             }
-            if (Bukkit.getWorld((String)world) != null) {
-                p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
-            }
-            else if (p.isOp()) {
+            if (Bukkit.getWorld((String) world) != null) {
+                p.teleport(new Location(Bukkit.getWorld((String) world), (double) X, (double) Y, (double) Z, (float) Math.floor((double) yaw), 0.0f));
+            } else if (p.isOp()) {
                 p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§cDiese Welt gibt es nicht!");
             }
             return;

@@ -13,14 +13,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class Spawn implements Listener
-{
+public class Spawn implements Listener {
     String displayNameSpawnItem;
-    
+
     public Spawn() {
         this.displayNameSpawnItem = "§6§lSpawn";
     }
-    
+
     public void spawnItem(final InventoryOpenEvent e) {
         final HumanEntity p = e.getPlayer();
         final ItemStack itemSpawn = new ItemStack(Material.MAGMA_CREAM);
@@ -29,7 +28,7 @@ public class Spawn implements Listener
         itemSpawn.setItemMeta(itemmetaHide);
         p.getInventory().setItem(14, itemSpawn);
     }
-    
+
     public void onInteract(final PlayerInteractEvent e) {
         if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
             e.getItem();

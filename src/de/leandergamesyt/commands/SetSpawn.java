@@ -10,19 +10,18 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SetSpawn implements CommandExecutor
-{
+public class SetSpawn implements CommandExecutor {
     String Prefix;
-    
+
     public SetSpawn() {
         this.Prefix = "§c[§2Lobby§c] | §5";
     }
-    
+
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
         if (!(sender instanceof Player)) {
             return false;
         }
-        final Player player = (Player)sender;
+        final Player player = (Player) sender;
         if (!player.hasPermission("lobbysystem.permission.setwarp.spawn")) {
             return false;
         }

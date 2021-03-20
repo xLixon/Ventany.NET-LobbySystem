@@ -17,8 +17,7 @@ import org.bukkit.inventory.InventoryHolder;
 
 import java.io.File;
 
-public class TeleportSpawn implements Listener
-{
+public class TeleportSpawn implements Listener {
     Inventory inv;
     String nameNavigator;
     String Prefix;
@@ -28,7 +27,7 @@ public class TeleportSpawn implements Listener
     String displayName1v1Item;
     String displayNameCBItem;
     String displayNameODV;
-    
+
     public TeleportSpawn() {
         this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
         this.nameNavigator = "§cNavigator";
@@ -40,16 +39,16 @@ public class TeleportSpawn implements Listener
         this.displayNameCBItem = "§5CityBuild";
         this.displayNameODV = "§2OneDayVaro";
     }
-    
+
     @EventHandler
     public void invClickSPTP(final InventoryClickEvent e) {
-        final Player p = (Player)e.getWhoClicked();
+        final Player p = (Player) e.getWhoClicked();
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;
             }
             if (e.getClickedInventory().contains(Material.MAGMA_CREAM)) {
-                if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object)Material.AIR)) {
+                if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals((Object) Material.AIR)) {
                     return;
                 }
                 if (e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.displayNameSpawn)) {
@@ -79,10 +78,9 @@ public class TeleportSpawn implements Listener
                         p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Spawn" + " " + "Der Wert \"yaw\" ist §4KEINE §r Zahl.");
                         return;
                     }
-                    if (Bukkit.getWorld((String)world) != null) {
-                        p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
-                    }
-                    else {
+                    if (Bukkit.getWorld((String) world) != null) {
+                        p.teleport(new Location(Bukkit.getWorld((String) world), (double) X, (double) Y, (double) Z, (float) Math.floor((double) yaw), 0.0f));
+                    } else {
                         p.sendMessage(String.valueOf(String.valueOf(this.Prefix)) + "§2Location: Spawn" + " " + "§cDiese Welt gibt es nicht!");
                     }
                 }

@@ -13,19 +13,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class MinimicheckerHat implements Listener
-{
+public class MinimicheckerHat implements Listener {
     String MiniHatName;
-    
+
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         this.MiniHatName = "§5Minimichecker";
-        final Player p = (Player)e.getWhoClicked();
-        final ItemStack gommeHat = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
-        final SkullMeta itemmetaGomme = (SkullMeta)gommeHat.getItemMeta();
+        final Player p = (Player) e.getWhoClicked();
+        final ItemStack gommeHat = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        final SkullMeta itemmetaGomme = (SkullMeta) gommeHat.getItemMeta();
         itemmetaGomme.setOwner("Minimichecker");
         itemmetaGomme.setDisplayName(this.MiniHatName);
-        gommeHat.setItemMeta((ItemMeta)itemmetaGomme);
+        gommeHat.setItemMeta((ItemMeta) itemmetaGomme);
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;
@@ -44,8 +43,7 @@ public class MinimicheckerHat implements Listener
                 p.sendMessage("§9Du hast jetzt folgenden Hat an:");
                 p.sendMessage(p.getInventory().getHelmet().getItemMeta().getDisplayName());
                 p.closeInventory();
-            }
-            else {
+            } else {
                 p.sendMessage("§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.MiniHatName);
             }
         }

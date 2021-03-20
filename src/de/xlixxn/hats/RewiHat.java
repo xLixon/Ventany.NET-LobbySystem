@@ -13,19 +13,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class RewiHat implements Listener
-{
+public class RewiHat implements Listener {
     String RewinsideNameHat;
-    
+
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         this.RewinsideNameHat = "§5Rewinside";
-        final Player p = (Player)e.getWhoClicked();
-        final ItemStack rewiHat = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
-        final SkullMeta itemmetaRewi = (SkullMeta)rewiHat.getItemMeta();
+        final Player p = (Player) e.getWhoClicked();
+        final ItemStack rewiHat = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        final SkullMeta itemmetaRewi = (SkullMeta) rewiHat.getItemMeta();
         itemmetaRewi.setOwner("Rewinside");
         itemmetaRewi.setDisplayName(this.RewinsideNameHat);
-        rewiHat.setItemMeta((ItemMeta)itemmetaRewi);
+        rewiHat.setItemMeta((ItemMeta) itemmetaRewi);
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;
@@ -42,12 +41,11 @@ public class RewiHat implements Listener
                     p.sendMessage("§9Du hast jetzt folgenden Hat an:");
                     p.sendMessage(p.getInventory().getHelmet().getItemMeta().getDisplayName());
                     p.closeInventory();
-                }
-                else {
+                } else {
                     p.sendMessage("§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.RewinsideNameHat);
                 }
-            }else {
-            	return;
+            } else {
+                return;
             }
         }
     }

@@ -86,7 +86,6 @@ public class InvInventoryCreate implements Listener {
 
                 final Inventory inv = Bukkit.createInventory((InventoryHolder) e.getPlayer(), 27, this.nameInventory);
 
-
                 inv.setItem(0, ReturnItem.addItem(Material.GOLD_BOOTS, invBoots));
                 inv.setItem(1, ReturnItem.addItem(Material.SKULL_ITEM, invHats));
                 inv.setItem(2, ReturnItem.addItem(Material.DRAGON_EGG, invSpecial));

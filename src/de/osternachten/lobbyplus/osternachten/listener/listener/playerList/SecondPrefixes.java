@@ -11,27 +11,26 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.util.ArrayList;
 
-public class SecondPrefixes implements Listener
-{
+public class SecondPrefixes implements Listener {
     public static ArrayList<PlayerPrefix> prefixes;
-    
+
     static {
         SecondPrefixes.prefixes = new ArrayList<PlayerPrefix>();
     }
-    
+
     public static void init() {
         registerPrefix("§7Spieler | ", "lobby.player");
     }
-    
+
     public static void registerPrefix(final String prefix, final String permission) {
         SecondPrefixes.prefixes.add(new PlayerPrefix(prefix, permission));
     }
-    
+
     @EventHandler
     public void onJoin(final PlayerJoinEvent e, final Player p) {
         this.addPrefix(e.getPlayer());
     }
-    
+
     public String getPrefixOfPlayer(final Player p) {
         for (final PlayerPrefix pp : SecondPrefixes.prefixes) {
             if (pp.hasPrefix(p)) {
@@ -40,7 +39,7 @@ public class SecondPrefixes implements Listener
         }
         return null;
     }
-    
+
     public boolean addPrefix(final Player p) {
         final String prefix = this.getPrefixOfPlayer(p);
         if (prefix != null) {
@@ -50,17 +49,16 @@ public class SecondPrefixes implements Listener
         }
         return prefix != null;
     }
-    
-    public static class PlayerPrefix
-    {
+
+    public static class PlayerPrefix {
         public String permission;
         public String prefix;
-        
+
         public PlayerPrefix(final String prefix, final String permission) {
             this.permission = permission;
             this.prefix = prefix;
         }
-        
+
         public boolean hasPrefix(final Player p) {
             return p.hasPermission(this.permission);
         }

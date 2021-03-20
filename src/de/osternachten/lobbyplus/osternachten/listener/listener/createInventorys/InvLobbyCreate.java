@@ -79,7 +79,6 @@ public class InvLobbyCreate implements Listener {
             if (e.getItem().getType() == Material.NETHER_STAR && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameLobby)) {
                 final Inventory inv = Bukkit.createInventory((InventoryHolder) e.getPlayer(), 27, this.nameLobby);
 
-
                 inv.setItem(0, ReturnItem.addItem(Material.NETHER_STAR, displayNameLobby1));
                 inv.setItem(1, ReturnItem.addItem(Material.NETHER_STAR, displayNameLobby2));
                 e.getPlayer().openInventory(inv);
@@ -141,7 +140,6 @@ public class InvLobbyCreate implements Listener {
             }
             p.sendMessage(String.valueOf(String.valueOf(String.valueOf(this.Prefix))) + "§8Du bist jetzt mit dem Server §c" + p.getServer().getName() + "§8verbunden.");
             System.out.println("\u001b[31m[LobbySystem] Der Spieler " + e.getWhoClicked().getName() + " wurde auf den Server " + e.getWhoClicked().getServer().getName() + "gesendet." + "\u001b[0m");
-
 
             this.connectPlayerToServer(p, "Lobby-2");
         }

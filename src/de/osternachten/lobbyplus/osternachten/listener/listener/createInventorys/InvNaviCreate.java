@@ -15,8 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-public class InvNaviCreate implements Listener
-{
+public class InvNaviCreate implements Listener {
     Inventory inv;
     String nameNavigator;
     String Prefix;
@@ -38,7 +37,7 @@ public class InvNaviCreate implements Listener
     String displayNameCommunity;
     String displayNameLounge;
     String displayNameVanilla;
-    
+
     public InvNaviCreate() {
         this.inv = Bukkit.createInventory((InventoryHolder) null, 54);
         this.nameNavigator = "§cNavigator";
@@ -62,7 +61,7 @@ public class InvNaviCreate implements Listener
         this.displayNameLounge = "§6§lLounge";
         this.displayNameVanilla = "§7[§aVanilla§7]§c[1.16.4]";
     }
-    
+
     @EventHandler
     public void onInteract(final PlayerInteractEvent e) {
         if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_BLOCK) {

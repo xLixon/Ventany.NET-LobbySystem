@@ -5,18 +5,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 
-public class Test implements Listener{
-	
-	String server = "ventany.kappagames.de";
-	String user = "testuser";
-	String pw = "test";
-	
-	@EventHandler
-	public void onJoin(PlayerJoinEvent e) {
-		
-		
-		
-		
-	}
+public class Test implements Listener {
+
+    String server = "ventany.kappagames.de";
+    String user = "testuser";
+    String pw = "test";
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+
+    }
 
 }

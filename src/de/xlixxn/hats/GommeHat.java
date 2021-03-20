@@ -13,19 +13,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class GommeHat implements Listener
-{
+public class GommeHat implements Listener {
     String GommeHDHatName;
-    
+
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         this.GommeHDHatName = "§5GommeHD";
-        final Player p = (Player)e.getWhoClicked();
-        final ItemStack gommeHat = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
-        final SkullMeta itemmetaGomme = (SkullMeta)gommeHat.getItemMeta();
+        final Player p = (Player) e.getWhoClicked();
+        final ItemStack gommeHat = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        final SkullMeta itemmetaGomme = (SkullMeta) gommeHat.getItemMeta();
         itemmetaGomme.setOwner("GommeHD");
         itemmetaGomme.setDisplayName(this.GommeHDHatName);
-        gommeHat.setItemMeta((ItemMeta)itemmetaGomme);
+        gommeHat.setItemMeta((ItemMeta) itemmetaGomme);
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;
@@ -42,8 +41,7 @@ public class GommeHat implements Listener
                     p.sendMessage("§9Du hast jetzt folgenden Hat an:");
                     p.sendMessage(p.getInventory().getHelmet().getItemMeta().getDisplayName());
                     p.closeInventory();
-                }
-                else {
+                } else {
                     p.sendMessage("§cDu hast zu wenig Permissions f\u00fcr den Kopf " + this.GommeHDHatName);
                 }
             }

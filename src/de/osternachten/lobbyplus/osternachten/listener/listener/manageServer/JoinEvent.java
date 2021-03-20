@@ -28,8 +28,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class JoinEvent implements Listener
-{
+public class JoinEvent implements Listener {
     String displayNameNavi;
     String displayNameHide;
     String displayNameSilent;
@@ -86,20 +85,18 @@ public class JoinEvent implements Listener
         this.displayNameInv = "§eInventar";
         this.displayNameNick = "§6Nick-Tool";
     }
-    
 
-    
+
     public void onDisconnect(final PlayerQuitEvent e) {
         final Player p = e.getPlayer();
         p.getInventory().clear();
         e.setQuitMessage(" ");
-        
-    }
-    
-    @SuppressWarnings("static-access")
-	@EventHandler
-    public void onJoin(final PlayerJoinEvent e) {
 
+    }
+
+    @SuppressWarnings("static-access")
+    @EventHandler
+    public void onJoin(final PlayerJoinEvent e) {
 
         final Player player = e.getPlayer();
         if (!(player instanceof Player)) {
@@ -108,7 +105,6 @@ public class JoinEvent implements Listener
         player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
         e.setJoinMessage("");
         player.setFlySpeed(0.2f);
-
 
         player.getInventory().setItem(0, ReturnItem.addItem(Material.COMPASS, displayNameNavi));
         player.getInventory().setItem(1, ReturnItem.addItem(Material.BLAZE_ROD, displayNameHide));
@@ -121,21 +117,19 @@ public class JoinEvent implements Listener
         }
         player.getInventory().setItem(8, ReturnItem.addItem(Material.NETHER_STAR, displayNameLobby));
         player.getInventory().setItem(9, ReturnItem.addItem(Material.STAINED_GLASS_PANE, displayNameSecret));
-        ;
-
 
         player.setFoodLevel(20);
         player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 10, 2));
         player.setGameMode(GameMode.SURVIVAL);
     }
-    
+
     @EventHandler
     public void onJoinSetGM(PlayerJoinEvent e) {
-    	Player p = e.getPlayer();
-    	
-    	p.setGameMode(GameMode.SURVIVAL);
+        Player p = e.getPlayer();
+
+        p.setGameMode(GameMode.SURVIVAL);
     }
-    
+
     @EventHandler
     public void interact(final PlayerInteractEvent e) {
         final Player p = e.getPlayer();
@@ -156,8 +150,7 @@ public class JoinEvent implements Listener
                 p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + this.Fly_OFF);
                 this.flyPlayers.remove(p);
                 p.setAllowFlight(false);
-            }
-            else {
+            } else {
                 flymeta.setDisplayName(this.Fly_ON);
                 p.sendMessage(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(String.valueOf(this.Prefix)))))) + this.Fly_ON);
                 this.flyPlayers.add(p);
@@ -166,7 +159,7 @@ public class JoinEvent implements Listener
             fly.setItemMeta(flymeta);
         }
     }
-    
+
     @EventHandler
     public void joinTP(final PlayerJoinEvent e) {
         final Player p = e.getPlayer();
@@ -196,24 +189,23 @@ public class JoinEvent implements Listener
             System.out.println("Der Wert \"yaw\" ist §4KEINE §r Zahl.");
             return;
         }
-        if (Bukkit.getWorld((String)world) != null) {
-            p.teleport(new Location(Bukkit.getWorld((String)world), (double)X, (double)Y, (double)Z, (float)Math.floor((double)yaw), 0.0f));
-        }
-        else {
+        if (Bukkit.getWorld((String) world) != null) {
+            p.teleport(new Location(Bukkit.getWorld((String) world), (double) X, (double) Y, (double) Z, (float) Math.floor((double) yaw), 0.0f));
+        } else {
             System.out.println("§cDiese Welt gibt es nicht!");
         }
     }
-    
+
     @EventHandler
     public void onquit(final PlayerQuitEvent e) {
         e.setQuitMessage("");
     }
-    
+
     @EventHandler
     public void setName(PlayerJoinEvent e) {
-    	if(SaveNick.playerNick != null) {
-    		ChangeName.changeName(SaveNick.playerNick, e.getPlayer());
-    		e.getPlayer().setPlayerListName(SaveNick.playerNick);
-    	}
+        if (SaveNick.playerNick != null) {
+            ChangeName.changeName(SaveNick.playerNick, e.getPlayer());
+            e.getPlayer().setPlayerListName(SaveNick.playerNick);
+        }
     }
 }

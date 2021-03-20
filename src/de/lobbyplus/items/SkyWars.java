@@ -6,6 +6,5 @@ package de.lobbyplus.items;
 
 import org.bukkit.event.Listener;
 
-public class SkyWars implements Listener
-{
+public class SkyWars implements Listener {
 }
