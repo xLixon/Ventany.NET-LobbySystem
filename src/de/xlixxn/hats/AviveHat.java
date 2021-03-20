@@ -20,12 +20,14 @@ public class AviveHat implements Listener
     @EventHandler
     public void onClick(final InventoryClickEvent e) {
         this.AviveHDNameHats = "§5AviveHD";
+
         final Player p = (Player)e.getWhoClicked();
         final ItemStack gommeHat = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
         final SkullMeta itemmetaGomme = (SkullMeta)gommeHat.getItemMeta();
         itemmetaGomme.setOwner("AviveHD");
         itemmetaGomme.setDisplayName(this.AviveHDNameHats);
         gommeHat.setItemMeta((ItemMeta)itemmetaGomme);
+
         if (e.isRightClick() || e.isLeftClick()) {
             if (e.getClickedInventory() == null) {
                 return;

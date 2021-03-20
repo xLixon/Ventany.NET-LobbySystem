@@ -16,7 +16,6 @@ import de.osternachten.lobbyplus.osternachten.listener.listener.manageServer.*;
 import de.osternachten.lobbyplus.osternachten.listener.listener.opClass.op;
 import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Prefix;
 import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.SecondPrefixes;
-import de.osternachten.lobbyplus.osternachten.listener.listener.playerList.Tab;
 import de.osternachten.lobbyplus.osternachten.listener.listener.scoreboards.ScoreboardSidebar;
 import de.xlixon.boots.*;
 import de.xlixon.commands.CleanChat;
@@ -132,7 +131,7 @@ public final class LobbyPlus extends JavaPlugin {
 		pm.registerEvents((Listener) new de.lobbyplus.items.Shield(), (Plugin) this);
 		pm.registerEvents((Listener) new WorldProtector(), (Plugin) this);
 		pm.registerEvents((Listener) new SecretListener(), (Plugin) this);
-		pm.registerEvents((Listener) new Tab(null), (Plugin) this);
+//		pm.registerEvents((Listener) new Tab(null), (Plugin) this);
 		pm.registerEvents((Listener) new LeaveEvent(), (Plugin) this);
 		pm.registerEvents((Listener) new CreateHatsInventory(), (Plugin) this);
 		pm.registerEvents((Listener) new LeaveEvent(), (Plugin) this);
