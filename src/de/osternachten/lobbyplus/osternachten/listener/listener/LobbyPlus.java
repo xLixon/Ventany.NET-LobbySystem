@@ -24,7 +24,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -48,6 +47,8 @@ public final class LobbyPlus extends JavaPlugin {
 	public TimeUnit lastJoinM;
 	public TimeUnit lastJoinS;
 	public final ChatManager chatManager;
+
+	public static String serverName = "§lVENTANY.NET";
 
 	public static final String noPermsError = "§7[§e!§7]§4Du hast nicht genügend Rechte für diesen Befehl!";
 
@@ -77,6 +78,8 @@ public final class LobbyPlus extends JavaPlugin {
 		this.getCommand("build").setExecutor(new BuildMode());
 		this.getCommand("test").setExecutor(new TestMSG());
 		this.getCommand("msg").setExecutor(new PrivatMessagesMSG());
+		this.getCommand("v").setExecutor(new Vanish());
+		this.getCommand("vanish").setExecutor(new Vanish());
 
 	}
 
@@ -87,10 +90,7 @@ public final class LobbyPlus extends JavaPlugin {
 
 	}
 
-	public void onJoin(final PlayerJoinEvent e) {
-		@SuppressWarnings("unused") final Player p = e.getPlayer();
 
-	}
 
 	public void onDisable() {
 	}
