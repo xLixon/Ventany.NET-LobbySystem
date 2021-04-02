@@ -78,8 +78,7 @@ public final class LobbyPlus extends JavaPlugin {
 		this.getCommand("build").setExecutor(new BuildMode());
 		this.getCommand("test").setExecutor(new TestMSG());
 		this.getCommand("msg").setExecutor(new PrivatMessagesMSG());
-		this.getCommand("v").setExecutor(new Vanish());
-		this.getCommand("vanish").setExecutor(new Vanish());
+
 
 	}
 

@@ -4,6 +4,7 @@
 
 package de.leandergamesyt.commands;
 
+import de.dytanic.cloudnet.api.CloudAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -60,24 +61,23 @@ public class Wartungsmodus implements Listener, CommandExecutor {
         }
     }
 
+    String serverGroup = CloudAPI.getInstance().getGroup();
+
     public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args) {
-        if (!command.getName().equalsIgnoreCase("wartungsmodus")) {
+
+        if (!(sender.hasPermission("lobby.maintenance") && sender instanceof Player)) {
+            sender.sendMessage("§cDu hast nicht genügend Rechte dafür");
             return false;
-        }
-        if (!sender.hasPermission("wartungsmodus") && !sender.isOp()) {
-            return false;
-        }
-        if (args.length == 1) {
-            if (args[0].equalsIgnoreCase("an")) {
-                this.wartungsmodus = true;
-                sender.sendMessage("§aDu hast den Wartungs-Modus aktiviert!");
+        } else {
+            if (!wartungsmodus) {
+                wartungsmodus = true;
+                CloudAPI.getInstance().getServerGroup(serverGroup).setMaintenance(true);
+                sender.sendMessage(String.valueOf(CloudAPI.getInstance().getServerGroup(serverGroup).isMaintenance() + ""));
+                sender.sendMessage(String.valueOf(CloudAPI.getInstance().getServerGroup(serverGroup) + ""));
+                sender.sendMessage("§aDie §4Wartung§a wurde erfolgreich aktiviert");
             }
-            if (args[0].equalsIgnoreCase("aus")) {
-                this.wartungsmodus = false;
-                sender.sendMessage("§4Du hast den Wartungs-Modus deaktiviert!");
-            }
-            return true;
         }
+
         return false;
     }
 }
