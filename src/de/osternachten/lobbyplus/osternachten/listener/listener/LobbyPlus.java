@@ -4,6 +4,7 @@
 
 package de.osternachten.lobbyplus.osternachten.listener.listener;
 
+import de.apis.setCoin;
 import de.leandergamesyt.commands.*;
 import de.lobbyplus.items.SaveNick;
 import de.osternachten.listener.listener.navigator.*;
@@ -78,6 +79,7 @@ public final class LobbyPlus extends JavaPlugin {
 		this.getCommand("build").setExecutor(new BuildMode());
 		this.getCommand("test").setExecutor(new TestMSG());
 		this.getCommand("msg").setExecutor(new PrivatMessagesMSG());
+		this.getCommand("coins").setExecutor(new setCoin());
 
 
 	}

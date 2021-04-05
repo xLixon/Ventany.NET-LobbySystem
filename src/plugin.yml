@@ -1,18 +1,65 @@
 ﻿name: LobbySystem
 version: 1.0
-author: xLixon
 main: de.osternachten.lobbyplus.osternachten.listener.listener.LobbyPlus
+author: xLixon
+
 commands:
   setwarp:
+    description: Set the Warps of the Navigator
+    permission: lobby.setwarp
+    usage: /setwarp navi+[warpname]
   heal:
+    description: Heal yourself
+    permission: lobby.heal
+    usage: /heal
   gm:
+    description: Use this Shortcut to Chage your Gamemode
+    permission: lobby.gm
+    usage: /gm [0|1|2|3]
   kickall:
+    description: Kick all Players from the Lobby (Not the Entire Network)
+    aliases: [ kall ]
+    permission: lobby.kick.all
+    usage: /kickall
   perms:
+    description: Own Integrated Perms System (BETA)
+    aliases: [ prm ]
+    permission: lobby.perms
+    usage: /perms args
   prefix:
+    description: Change your Tab- and Chatprefix
+    aliases: [ pr ]
+    permission: lobby.prefix
+    usage: /prefix yourPrefix
   cc:
-  cleanchat:
+    description: Clear the Entire Chat for all Players on the Lobby
+    permission: lobby.clear.chat
+    usage: /cc
+  clearchat:
+    description: Clear the Chat for all Players on the Lobby
+    aliases: [ cc ]
+    permission: lobby.clear.chat
+    usage: /clearchat
   wartung:
+    description: Enable the Maintenance Modus for the Single Lobby Server
+    aliases: [ maintenance ]
+    permission: lobby.maintenance
+    usage: /wartung [an|aus]
   nick:
+    description: Change your Nickname (BETA)
+    aliases: [ chn ]
+    permission: lobby.nick
+    usage: /nick [yourNick]
   build:
-  test:
+    description: Set you in the Buildmode
+    aliases: [ bm ]
+    permission: lobby.build
+    usage: /buildmode [TOGGELING COMMAND]
   msg:
+    description: Write a MSG to a Single Player (BETA)
+    usage: /msg [RECIPIENT NAME] [MESSAGE]
+  coins:
+    description: Change the Coins of the Player
+    aliases: [ cc ]
+    permission: lobby.changecoins
+    usage: "§c Usage: /coins [PLAYERNAME] [SET AMOUNT OF PLAYERS COINS]"

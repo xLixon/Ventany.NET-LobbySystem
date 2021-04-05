@@ -71,8 +71,8 @@ public class InvNaviCreate implements Listener {
             if (e.getItem().getType() == Material.COMPASS && e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(this.nameNavigator)) {
                 final Inventory inv = Bukkit.createInventory((InventoryHolder) e.getPlayer(), InventoryType.HOPPER, this.nameNavigator);
 
-                inv.setItem(0, ReturnItem.addItem(Material.MAGMA_CREAM, displayNameSpawn));
-                inv.setItem(2, ReturnItem.addItem(Material.DIAMOND_PICKAXE, displayNameVanilla));
+                inv.setItem(0, ReturnItem.addItem(Material.DIAMOND_PICKAXE, displayNameVanilla));
+                inv.setItem(2, ReturnItem.addItem(Material.MAGMA_CREAM, displayNameSpawn));
                 inv.setItem(4, ReturnItem.addItem(Material.BED, displayNameBedWarsItem));
 
                 e.getPlayer().openInventory(inv);

@@ -103,7 +103,7 @@ public class WorldProtector implements Listener {
     }
 
     @EventHandler
-    public void noMobSpawn(final EntitySpawnEvent e) {
+    public void noMobSpawn(EntitySpawnEvent e) {
         e.setCancelled(true);
     }
 
